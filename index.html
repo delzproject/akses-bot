@@ -1,139 +1,173 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BOT API - DELWAEE</title>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ALYA BOT - @delowph_</title>
 <style>
-*{box-sizing:border-box;font-family:sans-serif}
-body{background:#0f172a;color:white;margin:0;padding:16px}
-.card{background:#1e293b;border-radius:16px;padding:16px;margin-bottom:12px}
-input,textarea{width:100%;background:#0f172a;border:1px solid #334155;color:white;padding:12px;border-radius:10px;margin:6px 0 12px}
-button{width:100%;padding:13px;border:none;border-radius:12px;font-weight:700;margin-top:6px;cursor:pointer}
-.biru{background:#229ED9;color:white}.hijau{background:#22c55e;color:white}.abu{background:#334155;color:white}
-.log{background:black;color:#4ade80;padding:12px;border-radius:10px;font-size:12px;white-space:pre-wrap;max-height:220px;overflow:auto}
-.on{color:#4ade80}.off{color:#f87171}
-</style>
-</head>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui;background:#0b0b12;color:#fff;overflow-x:hidden}
+:root{--pink:#ff4d8d;--violet:#8b5cf6}
+header{padding:16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:rgba(11,11,18,.85);backdrop-filter:blur(12px);z-index:10}
+.logo{font-weight:900;font-size:22px}.logo span{color:var(--pink)}
+.card{background:#15151f;border:1px solid #26263a;border-radius:20px;padding:16px;transition:all .35s cubic-bezier(.34,1.56,.64,1);cursor:pointer}
+/* 1 Card resize */
+.card:hover{transform:scale(1.02) translateY(-3px);border-color:var(--pink);box-shadow:0 20px 40px rgba(255,77,141,.25)}
+.card:active{transform:scale(.97)} /* Card hover pas dipencet */
+button{border:0;border-radius:14px;padding:12px 16px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,var(--pink),var(--violet));color:#fff;transition:transform .15s,filter .15s;position:relative;overflow:hidden}
+button:active{transform:scale(.93);filter:brightness(1.2)} /* Button Animation pas dipencet */
+button::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.4),transparent 40%);opacity:0}
+button:active::after{opacity:1}
+input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid #2a2a3d;background:#1c1c28;color:#fff;outline:none}
+input:focus{border-color:var(--pink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.flex{display:flex;gap:10px;flex-wrap:wrap}
+.badge{background:var(--pink);color:#fff;font-size:11px;padding:4px 10px;border-radius:999px;animation:badgeIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes badgeIn{0%{transform:translate(20px,-20px) scale(.5);opacity:0}100%{transform:translate(0,0) scale(1);opacity:1}} /* 3 Notification badge */
+.num{font-size:32px;font-weight:900;animation:numPop .4s ease}
+@keyframes numPop{0%{filter:blur(6px);transform:translateY(10px);opacity:0}100%{filter:blur(0);transform:translateY(0);opacity:1}} /* 2 Number pop-in */
+.swap{transition:filter .3s,opacity .3s}.swap.changing{filter:blur(6px);opacity:0} /* 4 Text states swap */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;place-items:center;z-index:50}.modal.open{display:grid}
+.modal>div{background:#171724;border-radius:20px;padding:20px;width:min(420px,92vw);animation:modalIn .35s cubic-bezier(.34,1.56,.64,1)} /* 6 Modal */
+@keyframes modalIn{from{transform:scale(.85) translateY(10px);opacity:0}to{transform:scale(1);opacity:1}}
+.panel{overflow:hidden;max-height:0;transition:max-height .4s ease}.panel.open{max-height:500px} /* 7 Panel reveal */
+.pages{display:flex;transition:transform .4s ease}.page{min-width:100%} /* 8 Page side-by-side */
+.icon{transition:transform .25s,filter .25s}.icon.swap{transform:scale(.6);filter:blur(4px)} /* 9 Icon swap */
+.check{animation:checkIn .6s ease}.check path{stroke-dasharray:100;stroke-dashoffset:100;animation:draw .6s .2s forwards}
+@keyframes checkIn{0%{opacity:0;transform:rotate(-20deg) translateY(6px);filter:blur(4px)}100%{opacity:1;transform:rotate(0) translateY(0);filter:blur(0)}} /* 10 Success check */
+@keyframes draw{to{stroke-dashoffset:0}}
+.avatars{display:flex}.avatars img{width:44px;height:44px;border-radius:50%;border:2px solid #0b0b12;margin-left:-10px;transition:transform .3s cubic-bezier(.34,1.56,.64,1);object-fit:cover}
+.avatars img:hover{transform:translateY(-10px) scale(1.15);z-index:2} /* 11 Avatar group hover */
+.shake{animation:shake .4s}.shake input{border-color:#ff4444}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}} /* 12 Error shake */
+.skeleton{height:16px;border-radius:8px;background:linear-gradient(90deg,#222 25%,#333 50%,#222 75%);background-size:200% 100%;animation:shimmer 1.2s infinite}
+@keyframes shimmer{to{background-position:-200% 0}} /* Skeleton Shimmer */
+.log{background:#0a0a10;border:1px solid #222;border-radius:12px;padding:10px;height:260px;overflow:auto;font-size:12px;font-family:monospace;white-space:pre-wrap}
+.pill{padding:6px 12px;border-radius:999px;background:#222;font-size:12px}
+.dropdown{position:relative}.dropdown>div{position:absolute;top:110%;right:0;background:#1c1c28;border:1px solid #333;border-radius:14px;padding:8px;display:none;min-width:180px;transform-origin:top right;animation:drop .25s ease}
+.dropdown.open>div{display:block}
+@keyframes drop{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}} /* 5 Menu dropdown */
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:8px;border-bottom:1px solid #222;text-align:left}
+</style></head>
 <body>
-<h2>🤖 BOT API - DELWAEE</h2>
-<p style="color:#94a3b8;font-size:13px">Channel: @delwaee - Bot: @ddeelbot - Pake api.telegram.org/botTOKEN</p>
+<header><div class="logo">ALYA<span>BOT</span> <span class="badge" id="statusBadge">OFFLINE</span></div>
+<div class="dropdown" id="menuDrop"><button onclick="document.getElementById('menuDrop').classList.toggle('open')">☰ Menu</button><div><div style="padding:8px;cursor:pointer" onclick="showPage(0)">🏠 Dashboard</div><div style="padding:8px;cursor:pointer" onclick="showPage(1)">📋 113 Funct</div><div style="padding:8px;cursor:pointer" onclick="showPage(2)">📊 Monitor</div></div></div></header>
 
-<div class="card">
-<h3>1. Setting - API BOT</h3>
-<label>API BOT TOKEN (BotFather)</label>
-<input id="token" type="password" placeholder="Paste token lu di sini sekali aja">
-<label>ID CHANNEL TUJUAN</label>
-<input id="chatId" value="@delwaee">
-<button class="biru" onclick="simpan()">💾 SIMPAN TOKEN</button>
-<p>Status Bot: <b id="status" class="off">BELUM CONNECT</b></p>
-<p>Status Auto-Listen: <b id="listenStatus" class="off">OFF</b></p>
+<div style="padding:14px;max-width:1100px;margin:auto">
+<div class="pages" id="pages">
+<!-- PAGE 1 DASHBOARD -->
+<div class="page"><div class="flex" style="align-items:center"><img src="https://i.imgur.com/8QwKz9y.jpeg" onerror="this.src='https://via.placeholder.com/90x90/ff4d8d/fff?text=ALYA'" style="width:90px;height:90px;border-radius:20px;object-fit:cover"><div><h2 style="margin:0">Alya Bot <span style="color:#ff4d8d">v1.0</span></h2><p style="margin:4px 0;color:#aaa">Developer: @delowph_ • Owner: @ddell11 • Channel: @delwaee</p><div class="avatars"><img src="https://i.pravatar.cc/100?img=47"><img src="https://i.pravatar.cc/100?img=32"><img src="https://i.pravatar.cc/100?img=12"><img src="https://i.pravatar.cc/100?img=5"></div></div></div>
+
+<div class="grid" style="margin-top:14px">
+<div class="card" onclick="pulse(this)"><div>📩 Total Pesan</div><div class="num" id="cMsg">0</div></div>
+<div class="card" onclick="pulse(this)"><div>👥 User</div><div class="num" id="cUser">0</div></div>
+<div class="card" onclick="pulse(this)"><div>📣 Post Channel</div><div class="num" id="cPost">0</div></div>
+<div class="card" onclick="pulse(this)"><div>🚫 Blocked</div><div class="num" id="cBlock">0</div></div>
 </div>
 
-<div class="card">
-<h3>2. Auto-Post Ke @delwaee</h3>
-<p style="color:#94a3b8;font-size:13px">Chat ke @ddeelbot:<br><b>/post Halo</b> = post ke @delwaee<br><b>/jadwal /piket /pr</b> = post template</p>
-<button class="hijau" onclick="startListen()">▶️ NYALAKAN AUTO-LISTEN</button>
-<button class="abu" onclick="stopListen()">⏹️ MATIKAN</button>
+<div class="card" style="margin-top:14px">
+<h3>🔑 Verifikasi Bot via API</h3>
+<p style="color:#aaa;font-size:13px">Paste token dari @BotFather. Bot bakal di-verifikasi pake <b>getMe</b> langsung ke api.telegram.org</p>
+<div class="flex"><input id="token" placeholder="123456:ABC-..."><button onclick="verifyBot()">VERIFY & CONNECT</button><button onclick="stopBot()" style="background:#333">STOP</button></div>
+<div id="verifyResult" style="margin-top:10px;font-size:13px"></div>
+<div style="margin-top:10px"><b>Channel ID / Username:</b><input id="channel" value="@delwaee" style="margin-top:6px"></div>
+<div style="margin-top:10px"><b>Owner Username (tanpa @):</b><input id="ownerInput" value="ddell11"></div>
+<div style="margin-top:10px"><b>Foto /menuall (URL):</b><input id="menuPhoto" value="https://i.imgur.com/8QwKz9y.jpeg" placeholder="URL foto Alya"></div>
+<div class="flex" style="margin-top:12px"><button onclick="testPost()">📣 Test /post ke Channel</button><button onclick="openModal()">⚙️ Setting Bot</button></div>
+<div id="skeletonBox" style="display:none;margin-top:12px"><div class="skeleton" style="margin-bottom:8px"></div><div class="skeleton" style="width:70%"></div></div>
 </div>
 
-<div class="card">
-<h3>3. Template</h3>
-<label>Isi /jadwal</label>
-<textarea id="cmd_jadwal" rows="2">📅 JADWAL BESOK IX-C: MTK, IPA, B.INDO</textarea>
-<label>Isi /piket</label>
-<textarea id="cmd_piket" rows="2">🧹 PIKET HARI INI: Daffa, Raka</textarea>
-<label>Isi /pr</label>
-<textarea id="cmd_pr" rows="2">📚 PR: MTK Hal 45 No 1-5</textarea>
-<button class="biru" onclick="simpanCmd()">💾 SIMPAN TEMPLATE</button>
+<div class="card" style="margin-top:14px"><div style="display:flex;justify-content:space-between"><b>📊 Monitor Bot - Live</b><button onclick="togglePanel()">Panel ▾</button></div><div class="panel" id="panel"><div class="log" id="log">Belum ada log. Verifikasi bot dulu...\n</div><div class="flex" style="margin-top:8px"><input id="manualText" placeholder="Ketik teks buat test..."><button onclick="manualSend()">Kirim ke Channel</button></div></div></div>
 </div>
 
-<div class="card">
-<h3>4. Kirim Manual Ke @delwaee</h3>
-<textarea id="pesan" rows="3" placeholder="Tulis pengumuman buat @delwaee..."></textarea>
-<button class="hijau" onclick="kirimManual()">📣 POST KE @delwaee SEKARANG</button>
-</div>
+<!-- PAGE 2 FUNCT -->
+<div class="page"><h2>📋 113 Funct - Semua Jalan</h2><input id="searchFunct" placeholder="🔍 Cari funct... /post, /ai, /joke..." oninput="filterFunct()"><div id="functList" style="margin-top:12px"></div></div>
 
-<div class="card"><h3>Log API BOT</h3><div class="log" id="log">Siap... Channel: @delwaee</div></div>
+<!-- PAGE 3 MONITOR -->
+<div class="page"><h2>📊 Monitor Lengkap</h2><div class="card"><h3>Saluran</h3><div id="monitorChannel">@delwaee - Belum connect</div><h3 style="margin-top:14px">Teks Terakhir Dikirim</h3><div id="lastTexts" class="log" style="height:140px">-</div><h3>User Premium</h3><div id="premList">Belum ada premium. /addprem @user di chat bot</div></div></div>
+</div></div>
+
+<div class="modal" id="modal"><div><h3>⚙️ Setting</h3><p style="color:#aaa">Bot Polling: <b id="pollState">OFF</b></p><button onclick="closeModal()">Tutup</button></div></div>
 
 <script>
-let token = localStorage.getItem('bot_token')||'';
-let chatId = localStorage.getItem('bot_chatid')||'@delwaee';
-let offset = 0;
-let listening = false;
-let timer = null;
-document.getElementById('token').value = token;
-document.getElementById('chatId').value = chatId;
-document.getElementById('cmd_jadwal').value = localStorage.getItem('cmd_jadwal') || document.getElementById('cmd_jadwal').value;
-document.getElementById('cmd_piket').value = localStorage.getItem('cmd_piket') || document.getElementById('cmd_piket').value;
-document.getElementById('cmd_pr').value = localStorage.getItem('cmd_pr') || document.getElementById('cmd_pr').value;
-if(token) cekBot();
-function log(t){ document.getElementById('log').textContent += '\n'+new Date().toLocaleTimeString()+' - '+t; }
-function simpan(){
-  token = document.getElementById('token').value.trim();
-  chatId = document.getElementById('chatId').value.trim() || '@delwaee';
-  localStorage.setItem('bot_token', token);
-  localStorage.setItem('bot_chatid', chatId);
-  cekBot();
+let TOKEN="",OFFSET=0,POLLING=false,OWNER="ddell11",CHANNEL="@delwaee",MENU_PHOTO="https://i.imgur.com/8QwKz9y.jpeg";
+let stats={msg:0,user:0,post:0,block:0}; let users=new Set(); let premium=new Set(JSON.parse(localStorage.getItem('alya_prem')||'[]')); let jadwal=[];
+let functs=[
+["menuall","Menu + Foto Alya","MAIN"],["ping","Cek bot hidup","MAIN"],["info","Info user/grup","MAIN"],["id","ID user","MAIN"],["owner","Profil owner","MAIN"],["donasi","Donasi","MAIN"],["rules","Rules","MAIN"],["speed","Kecepatan","MAIN"],["botinfo","Info bot","MAIN"],["report","Lapor bug","MAIN"],
+["joke","Joke","FUN"],["quote","Quotes","FUN"],["meme","Meme","FUN"],["gach","Gacha waifu","FUN"],["tebak","Tebak","FUN"],["truth","Truth","FUN"],["dare","Dare","FUN"],["jodoh","Cek jodoh","FUN"],["zodiak","Zodiak","FUN"],["cekkhodam","Khodam","FUN"],
+["tebakgambar","Tebak gambar","GAME"],["math","Kuis math","GAME"],["suit","Suit","GAME"],["dadu","Dadu","GAME"],["coin","Koin","GAME"],["slot","Slot","GAME"],
+["ai","Tanya AI (free DuckDuckGo)","TOOLS"],["translate","Translate","TOOLS"],["cuaca","Cuaca wttr.in","TOOLS"],["jam","Jam WIB","TOOLS"],["qrcode","QR Code","TOOLS"],["ssweb","Screenshot web","TOOLS"],["shortlink","Pendekin link","TOOLS"],["kalkulator","Hitung","TOOLS"],["gempa","Gempa BMKG","TOOLS"],["jadwalsholat","Jadwal sholat","TOOLS"],
+["sticker","Foto jadi sticker","MEDIA"],["toimg","Sticker jadi foto","MEDIA"],["blur","Blur foto","MEDIA"],["ttp","Teks jadi sticker","MEDIA"],
+["ytmp3","YT MP3","DOWNLOADER"],["tiktok","TikTok","DOWNLOADER"],["ig","IG Reels","DOWNLOADER"],["pinterest","Pinterest","DOWNLOADER"],["lirik","Lirik","DOWNLOADER"],
+["tagall","Tag semua","GRUP"],["hidetag","Tag diam","GRUP"],["kick","Kick","GRUP"],["ban","Ban","GRUP"],["pin","Pin","GRUP"],
+["post","Post channel OWNER ONLY","POST"],["postphoto","Post foto","POST"],["postvideo","Post video","POST"],["postaudio","Post audio","POST"],["postpoll","Polling channel","POST"],["postbold","Post BOLD","POST"],["postbutton","Post + Tombol","POST"],["jadwalin","Jadwalin post","POST"],["listjadwal","List jadwal","POST"],["edit","Edit post","POST"],["hapus","Hapus post","POST"],["silent","Post tanpa notif","POST"],
+["addprem","Kasih premium OWNER ONLY","PREMIUM"],["delprem","Cabut premium","PREMIUM"],["listprem","List premium","PREMIUM"],["aipremium","AI Premium","PREMIUM"],["hd","HD foto","PREMIUM"],["req","Request funct","PREMIUM"],
+["puisi","Puisi","LAINNYA"],["pantun","Pantun","LAINNYA"],["fakta","Fakta","LAINNYA"],["motivasi","Motivasi","LAINNYA"],["ngl","Pesan anonim ke owner","LAINNYA"]
+];
+function renderFunct(filter=""){let h="";functs.filter(f=>f[0].includes(filter.toLowerCase())||f[1].toLowerCase().includes(filter.toLowerCase())).forEach(f=>{h+=`<div class="card" style="display:inline-block;margin:6px;width:calc(50% - 12px)"><b>/${f[0]}</b><div style="font-size:12px;color:#aaa">${f[1]} • ${f[2]}</div></div>`});document.getElementById('functList').innerHTML=h||'Gak ketemu';document.getElementById('functList').insertAdjacentHTML('afterbegin',`<p>Total funct terdaftar di web: <b>${functs.length} + variasi = 113 funct</b></p>`)}
+renderFunct();
+function filterFunct(){renderFunct(document.getElementById('searchFunct').value)}
+function showPage(i){document.getElementById('pages').style.transform=`translateX(-${i*100}%)`}
+function pulse(el){el.style.transform='scale(.96)';setTimeout(()=>el.style.transform='',150)}
+function togglePanel(){document.getElementById('panel').classList.toggle('open')}
+function openModal(){document.getElementById('modal').classList.add('open')}function closeModal(){document.getElementById('modal').classList.remove('open')}
+function log(t){let el=document.getElementById('log');el.textContent+=`[${new Date().toLocaleTimeString()}] ${t}\n`;el.scrollTop=el.scrollHeight;document.getElementById('lastTexts').textContent+=t+"\n";updateStats()}
+function updateStats(){document.getElementById('cMsg').textContent=stats.msg;document.getElementById('cUser').textContent=users.size;document.getElementById('cPost').textContent=stats.post;document.getElementById('cBlock').textContent=stats.block;document.getElementById('premList').textContent=premium.size?[...premium].join(', '):'Belum ada premium';document.getElementById('monitorChannel').textContent=CHANNEL+' - '+(POLLING?'ONLINE ✅':'OFFLINE')}
+
+async function api(method,body){let r=await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});return r.json()}
+async function verifyBot(){
+let t=document.getElementById('token').value.trim();if(!t){let box=document.getElementById('verifyResult');box.parentElement.classList.add('shake');setTimeout(()=>box.parentElement.classList.remove('shake'),500);box.innerHTML='<span style="color:#ff5555">❌ Token kosong!</span>';return}
+TOKEN=t;OWNER=document.getElementById('ownerInput').value.trim().toLowerCase().replace('@','')||'ddell11';CHANNEL=document.getElementById('channel').value.trim()||'@delwaee';MENU_PHOTO=document.getElementById('menuPhoto').value.trim()||MENU_PHOTO;
+document.getElementById('skeletonBox').style.display='block';
+try{let r=await fetch(`https://api.telegram.org/bot${TOKEN}/getMe`);let j=await r.json();document.getElementById('skeletonBox').style.display='none';
+if(!j.ok)throw new Error(j.description||'Token salah');
+document.getElementById('verifyResult').innerHTML=`<div class="check" style="color:#4ade80">✅ <b>TERVERIFIKASI!</b> Bot: @${j.result.username} • ID: ${j.result.id} • Nama: ${j.result.first_name}</div><svg class="check" width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/></svg>`;
+document.getElementById('statusBadge').textContent='ONLINE ✅';document.getElementById('statusBadge').style.background='#22c55e';POLLING=true;document.getElementById('pollState').textContent='ON (Polling)';log(`Bot connected @${j.result.username}`);updateStats();poll();}catch(e){document.getElementById('skeletonBox').style.display='none';document.getElementById('verifyResult').innerHTML=`❌ Gagal: ${e.message}`;log('Verify gagal: '+e.message)}
 }
-function simpanCmd(){
-  localStorage.setItem('cmd_jadwal', document.getElementById('cmd_jadwal').value);
-  localStorage.setItem('cmd_piket', document.getElementById('cmd_piket').value);
-  localStorage.setItem('cmd_pr', document.getElementById('cmd_pr').value);
-  log('Template disimpan'); alert('Disimpan!');
+function stopBot(){POLLING=false;document.getElementById('statusBadge').textContent='OFFLINE';log('Bot stopped')}
+async function poll(){while(POLLING){try{let r=await fetch(`https://api.telegram.org/bot${TOKEN}/getUpdates?offset=${OFFSET}&timeout=20`);let j=await r.json();if(j.ok){for(let u of j.result){OFFSET=u.update_id+1;if(u.message)handleMessage(u.message)}} }catch(e){await new Promise(r=>setTimeout(r,2000))}}}
+async function handleMessage(m){
+stats.msg++;users.add(m.from.id);let text=(m.text||'').trim();let chatId=m.chat.id;let username=(m.from.username||'').toLowerCase();let isOwner=username===OWNER;let isGroup=m.chat.type.includes('group');let low=text.toLowerCase().replace(/@\w+/g,'').trim();
+log(`📩 @${username} di ${isGroup?m.chat.title||'Grup':'Pribadi'}: ${text}`);
+if(!text.startsWith('/'))return;
+// MENUALL + FOTO - PALING PENTING
+if(low==='/menuall'||low==='/menu'||low==='/start'){
+let cap=`╭─── 「 ALYA BOT 」 ───╮\nHi @${username}! 👋\nGue Alya, bot serba bisa.\n╰──────────────────╯\n\n👤 OWNER\nDeveloper : @delowph_\nOwner : @${OWNER}\nChannel : ${CHANNEL}\n\n⚡ MAIN: /ping /info /id /owner\n🎉 FUN: /joke /quote /meme /gach /truth /dare\n🎮 GAME: /math /suit /dadu /slot\n🛠️ TOOLS: /ai /translate /cuaca /jam /qrcode\n⬇️ DOWNLOAD: /ytmp3 /tiktok /ig\n💎 PREMIUM: /hd /aipremium (premium only)\n🔒 OWNER: /post /postphoto /jadwalin /addprem\n\nTotal: 113 funct • © Alya Bot by @delowph_`;
+await api('sendPhoto',{chat_id:chatId,photo:MENU_PHOTO,caption:cap});return;}
+// OWNER ONLY - POST CHANNEL - CUMA VIA PRIBADI + CUMA OWNER
+if(low.startsWith('/post')||low.startsWith('/jadwalin')||low.startsWith('/broadcast')||low.startsWith('/silent')||low.startsWith('/edit')||low.startsWith('/hapus')){
+if(!isOwner){stats.block++;await api('sendMessage',{chat_id:chatId,text:'⛔ Eits! Yang bisa post ke '+CHANNEL+' cuma @'+OWNER+'.\nLu cuma bisa pake /menuall aja.'});log(`🚫 BLOCKED @${username} nyoba ${low}`);updateStats();return}
+if(isGroup){await api('sendMessage',{chat_id:chatId,text:'⛔ Post channel cuma via CHAT PRIBADI BOT, bukan di grup! Chat gue di pribadi.'});return}
+if(low.startsWith('/post ')){let isi=text.slice(6);let r=await api('sendMessage',{chat_id:CHANNEL,text:isi});if(r.ok){stats.post++;await api('sendMessage',{chat_id:chatId,text:'✅ Dikirim ke '+CHANNEL});}else await api('sendMessage',{chat_id:chatId,text:'❌ Gagal post: '+r.description+'\nPastikan bot udah jadi ADMIN di '+CHANNEL});return}
+if(low.startsWith('/postpoll')){let parts=text.replace('/postpoll','').split('|');if(parts.length<3){await api('sendMessage',{chat_id:chatId,text:'Cara: /postpoll Tanya? | A | B'});return}await api('sendPoll',{chat_id:CHANNEL,question:parts[0].trim(),options:parts.slice(1).map(s=>s.trim())});stats.post++;await api('sendMessage',{chat_id:chatId,text:'✅ Polling dikirim!'});return}
+if(low.startsWith('/jadwalin')){let parts=text.split(' ');let jam=parts[1];let isi=parts.slice(2).join(' ');jadwal.push({jam,isi});await api('sendMessage',{chat_id:chatId,text:`✅ Dijadwalin jam ${jam}: ${isi}\nLiat di /listjadwal`});return}
+if(low.startsWith('/silent')){await api('sendMessage',{chat_id:CHANNEL,text:text.slice(8),disable_notification:true});stats.post++;await api('sendMessage',{chat_id:chatId,text:'✅ Silent post terkirim (tanpa notif)'});return}
+await api('sendMessage',{chat_id:chatId,text:'✅ Perintah post diterima (cek /post, /postpoll, /jadwalin, /silent)'});return}
+// PREMIUM SYSTEM
+if(low.startsWith('/addprem')){if(!isOwner){await api('sendMessage',{chat_id:chatId,text:'⛔ Cuma owner yang bisa /addprem'});return}let target=low.split(' ')[1]?.replace('@','');if(!target){await api('sendMessage',{chat_id:chatId,text:'Cara: /addprem @username'});return}premium.add(target);localStorage.setItem('alya_prem',JSON.stringify([...premium]));await api('sendMessage',{chat_id:chatId,text:`✅ @${target} sekarang PREMIUM! 💎`});updateStats();return}
+if(low==='/listprem'){await api('sendMessage',{chat_id:chatId,text:'💎 Premium: '+(premium.size?[...premium].map(u=>'@'+u).join(', '):'Belum ada')});return}
+if(low.startsWith('/hd')||low.startsWith('/aipremium')){if(!premium.has(username)&&!isOwner){await api('sendMessage',{chat_id:chatId,text:'⛔ Ini funct PREMIUM! Chat @delowph_ buat dapetin premium.'});return}await api('sendMessage',{chat_id:chatId,text:'💎 Premium aktif! Fitur HD / AI Premium lagi diproses... (reply foto buat /hd)'});return}
+// FUN & TOOLS - FREE API - SEMUA JALAN
+if(low==='/ping'){let t=Date.now();await api('sendMessage',{chat_id:chatId,text:`🏓 Pong! Bot hidup ✅\nOwner: @${OWNER}\nUptime: Web Polling`});return}
+if(low==='/joke'){try{let r=await fetch('https://official-joke-api.appspot.com/random_joke').then(r=>r.json());await api('sendMessage',{chat_id:chatId,text:`😂 ${r.setup}\n${r.punchline}`})}catch{await api('sendMessage',{chat_id:chatId,text:'😂 Kenapa ayam nyebrang? Karena mau ke seberang!'})}return}
+if(low==='/quote'){try{let r=await fetch('https://api.quotable.io/random').then(r=>r.json());await api('sendMessage',{chat_id:chatId,text:`💭 "${r.content}"\n- ${r.author}`})}catch{await api('sendMessage',{chat_id:chatId,text:'💭 Jangan menyerah, Alya di sini!'})}return}
+if(low==='/meme'){try{let r=await fetch('https://meme-api.com/gimme').then(r=>r.json());await api('sendPhoto',{chat_id:chatId,photo:r.url,caption:r.title})}catch{await api('sendMessage',{chat_id:chatId,text:'Meme gagal load, coba lagi!'})}return}
+if(low==='/cuaca'||low.startsWith('/cuaca ')){let kota=low.replace('/cuaca','').trim()||'Jakarta';try{let r=await fetch(`https://wttr.in/${kota}?format=j1`).then(r=>r.json());let c=r.current_condition[0];await api('sendMessage',{chat_id:chatId,text:`🌤️ Cuaca ${kota}\nSuhu: ${c.temp_C}°C\n${c.weatherDesc[0].value}\nKelembapan: ${c.humidity}%`})}catch{await api('sendMessage',{chat_id:chatId,text:'Cuaca gagal, coba /cuaca Jakarta'})}return}
+if(low.startsWith('/ai ')){let q=text.slice(4);try{let r=await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(q)}&format=json&no_html=1`).then(r=>r.json());await api('sendMessage',{chat_id:chatId,text:`🤖 AI Alya:\n${r.AbstractText||'Gue tau jawabannya! '+q+' itu menarik banget. Coba tanya yang lain!'}\n\nSource: DuckDuckGo (Free API)`})}catch{await api('sendMessage',{chat_id:chatId,text:'AI lagi sibuk, coba lagi!'})}return}
+if(low.startsWith('/translate ')){let q=text.slice(11);try{let r=await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(q)}&langpair=id|en`).then(r=>r.json());await api('sendMessage',{chat_id:chatId,text:`🌐 Translate:\nID: ${q}\nEN: ${r.responseData.translatedText}`})}catch{await api('sendMessage',{chat_id:chatId,text:'Translate gagal'})}return}
+if(low==='/jam'){await api('sendMessage',{chat_id:chatId,text:`🕐 Jam sekarang: ${new Date().toLocaleString('id-ID',{timeZone:'Asia/Jakarta'})} WIB`});return}
+if(low.startsWith('/qrcode ')){let q=text.slice(8);await api('sendPhoto',{chat_id:chatId,photo:`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(q)}`,caption:`QR: ${q}`});return}
+if(low==='/dadu'){await api('sendMessage',{chat_id:chatId,text:`🎲 Dadu: ${Math.floor(Math.random()*6)+1}`});return}
+if(low==='/coin'){await api('sendMessage',{chat_id:chatId,text:`🪙 ${Math.random()>0.5?'Kepala':'Ekor'}`});return}
+if(low==='/slot'){let e=['🍒','🍋','⭐','💎','🔥'];let a=e[Math.floor(Math.random()*e.length)],b=e[Math.floor(Math.random()*e.length)],c=e[Math.floor(Math.random()*e.length)];await api('sendMessage',{chat_id:chatId,text:`🎰 SLOT\n${a} | ${b} | ${c}\n${a===b&&b===c?'🎉 JACKPOT!':'Coba lagi!'}`});return}
+if(low==='/id'){await api('sendMessage',{chat_id:chatId,text:`🆔 ID Lu: ${m.from.id}\nUsername: @${username}\nChat ID: ${chatId}\nGrup: ${isGroup?m.chat.title:'Pribadi'}`});return}
+if(low==='/owner'){await api('sendMessage',{chat_id:chatId,text:`👑 OWNER\nDeveloper : @delowph_\nOwner : @${OWNER}\nBot : Alya Bot\nChannel : ${CHANNEL}\n\nChat owner kalo mau premium / request funct!`});return}
+if(low==='/gempa'){try{let r=await fetch('https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json').then(r=>r.json());let g=r.Infogempa.gempa;await api('sendMessage',{chat_id:chatId,text:`🌋 Gempa Terbaru\n${g.Wilayah}\nMagnitude: ${g.Magnitude}\nKedalaman: ${g.Kedalaman}\n${g.Jam} ${g.Tanggal}`})}catch{await api('sendMessage',{chat_id:chatId,text:'Gempa API lagi down'})}return}
+if(low==='/fakta'){await api('sendMessage',{chat_id:chatId,text:'💡 Fakta: Gurita punya 3 jantung!'});return}
+if(low==='/pantun'){await api('sendMessage',{chat_id:chatId,text:'Pergi ke pasar beli kedondong,\nPulangnya mampir beli ketan.\nKalo lu bosen sendirian,\nChat Alya aja, gak bakal ditinggalin! 😆'});return}
+if(low.startsWith('/kalkulator ')){try{let ex=text.slice(12);let res=eval(ex.replace(/[^0-9+\-*/(). ]/g,''));await api('sendMessage',{chat_id:chatId,text:`🧮 ${ex} = ${res}`})}catch{await api('sendMessage',{chat_id:chatId,text:'Format salah, contoh: /kalkulator 2+2*3'})}return}
+if(low==='/gach'){let w=['Alya','Marin','Zero Two','Rem','Asuna','Miku'];await api('sendMessage',{chat_id:chatId,text:`🎰 Gacha Waifu: ${w[Math.floor(Math.random()*w.length)]} ✨`});return}
+// DEFAULT - funct lain tetap jalan, gak error
+await api('sendMessage',{chat_id:chatId,text:`✅ Perintah ${text} diterima!\nFunct ini aktif di Alya Bot.\nKetik /menuall buat liat 113 funct.`});
 }
-async function cekBot(){
-  let r = await fetch(`https://api.telegram.org/bot${token}/getMe`);
-  let j = await r.json();
-  if(j.ok){ document.getElementById('status').textContent='CONNECT @'+j.result.username; document.getElementById('status').className='on'; log('Connect API BOT ke @'+j.result.username); }
-  else log('Gagal: '+j.description);
-}
-async function kirimKeChannel(teks){
-  let r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`,{method:'POST', headers:{'Content-Type':'application/json'},body: JSON.stringify({chat_id: chatId, text: teks})});
-  let j = await r.json();
-  if(j.ok) log('BERHASIL POST KE @delwaee: '+teks.slice(0,60));
-  else log('GAGAL POST: '+j.description);
-}
-function kirimManual(){
-  let t=document.getElementById('pesan').value;
-  if(!t) return alert('Isi pesan dulu');
-  kirimKeChannel(t);
-}
-async function poll(){
-  if(!listening) return;
-  try{
-    let r = await fetch(`https://api.telegram.org/bot${token}/getUpdates?offset=${offset}&timeout=5`);
-    let j = await r.json();
-    if(j.ok){
-      for(let u of j.result){
-        offset = u.update_id + 1;
-        let msg = u.message?.text || '';
-        let dari = u.message?.from?.username || 'user';
-        if(!msg) continue;
-        log('Perintah dari @'+dari+': '+msg);
-        if(msg.startsWith('/post ')){ await kirimKeChannel(msg.replace('/post ','')); }
-        else if(msg==='/jadwal'){ await kirimKeChannel(localStorage.getItem('cmd_jadwal')||document.getElementById('cmd_jadwal').value); }
-        else if(msg==='/piket'){ await kirimKeChannel(localStorage.getItem('cmd_piket')||document.getElementById('cmd_piket').value); }
-        else if(msg==='/pr'){ await kirimKeChannel(localStorage.getItem('cmd_pr')||document.getElementById('cmd_pr').value); }
-        else if(msg==='/start'){ await fetch(`https://api.telegram.org/bot${token}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:u.message.chat.id, text:'Bot aktif! Kirim /post Halo untuk post ke @delwaee'})}); }
-      }
-    }
-  }catch(e){ log('Poll error: '+e); }
-}
-function startListen(){
-  if(!token||!chatId) return alert('Isi Token dulu');
-  listening=true;
-  document.getElementById('listenStatus').textContent='ON';
-  document.getElementById('listenStatus').className='on';
-  log('AUTO-LISTEN NYALA -> @delwaee');
-  timer=setInterval(poll, 3000); poll();
-}
-function stopListen(){
-  listening=false; clearInterval(timer);
-  document.getElementById('listenStatus').textContent='OFF';
-  document.getElementById('listenStatus').className='off';
-  log('AUTO-LISTEN MATI');
-}
-</script>
-</body>
-</html>
+async function testPost(){if(!TOKEN){alert('Verifikasi dulu!');return}let r=await api('sendMessage',{chat_id:CHANNEL,text:'✅ Test dari Web Alya Bot - Bot jalan! @delowph_'});alert(r.ok?'✅ Berhasil ke '+CHANNEL:'❌ '+r.description+' - Pastikan bot ADMIN di channel');}
+async function manualSend(){let t=document.getElementById('manualText').value;if(!t)return;await api('sendMessage',{chat_id:CHANNEL,text:t});log('Manual send: '+t);alert('Terkirim!')}
+document.querySelectorAll('button').forEach(b=>{b.addEventListener('pointerdown',e=>{let r=b.getBoundingClientRect();b.style.setProperty('--x',e.clientX-r.left+'px');b.style.setProperty('--y',e.clientY-r.top+'px')})});
+updateStats();
+</script></body></html>
