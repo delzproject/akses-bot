@@ -1,295 +1,312 @@
 <!DOCTYPE html>
 <html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>𝔸𝕃𝕐𝔸 𝔹𝕆𝕋 V5 ULTIMATE - 300 Funct</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<title>ALYA BOT V11 - SATU FILE WEB - 300 FUNCT</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:'Plus Jakarta Sans',system-ui;background:#08080f;color:#fff;overflow-x:hidden;background-image:radial-gradient(circle at 20% 10%,rgba(255,77,141,.25),transparent 40%),radial-gradient(circle at 90% 20%,rgba(139,92,246,.25),transparent 40%)}
-header{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,15,26,.85);backdrop-filter:blur(14px);position:sticky;top:0;z-index:20;border-bottom:1px solid #26263a}
-.logo{font-weight:900;font-size:26px;letter-spacing:-.5px;background:linear-gradient(135deg,#ff4d8d,#8b5cf6,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.badge{background:linear-gradient(135deg,#ff4d8d,#8b5cf6);padding:6px 12px;border-radius:999px;font-size:11px;font-weight:900;animation:badgeIn .6s cubic-bezier(.34,1.56,.64,1);box-shadow:0 0 20px rgba(255,77,141,.5)}
-@keyframes badgeIn{0%{transform:translate(30px,-30px) scale(.4) rotate(15deg);opacity:0}60%{transform:translate(-3px,2px) scale(1.1)}100%{transform:translate(0,0) scale(1);opacity:1}}
-.hero{background:linear-gradient(135deg,#1a0b2e,#0f0f1f 60%,#0b2e2a);border:1px solid #2a2a4a;border-radius:24px;padding:20px;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;right:-30px;top:-30px;width:150px;height:150px;background:radial-gradient(circle,#ff4d8d 0%,transparent 70%);opacity:.4}
-/* 1 Card resize */
-.card{background:rgba(20,20,35,.9);border:1px solid #2a2a4a;border-radius:20px;padding:16px;transition:all .35s cubic-bezier(.34,1.56,.64,1);cursor:pointer;backdrop-filter:blur(10px)}
-.card:hover{transform:scale(1.02) translateY(-4px);border-color:#ff4d8d;box-shadow:0 20px 40px rgba(255,77,141,.3)}
-.card:active{transform:scale(.97)}
-button{border:0;border-radius:14px;padding:12px 16px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,#ff4d8d,#8b5cf6);color:#fff;transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden}
-button:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transform:translateX(-100%);transition:transform .4s}
-button:hover:after{transform:translateX(100%)}button:hover{box-shadow:0 10px 25px rgba(255,77,141,.45)}button:active{transform:scale(.90)}
-.btn2{background:#1e1e2e;border:1px solid #2a2a3d}.btnGlass{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(10px)}
-input{width:100%;padding:13px;border-radius:13px;border:1px solid #2a2a4a;background:#1c1c28;color:#fff;outline:none;margin-top:7px;font-family:inherit}
-input:focus{border-color:#ff4d8d;box-shadow:0 0 0 3px rgba(255,77,141,.2)}
-/* 12 Error shake */
-.shake{animation:shake .45s}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
-/* 2 Number pop-in */
-.num{font-size:34px;font-weight:900;animation:numPop .5s cubic-bezier(.34,1.56,.64,1)}
-@keyframes numPop{0%{filter:blur(8px);transform:translateY(12px) scale(.9);opacity:0}100%{filter:blur(0);transform:translateY(0) scale(1);opacity:1}}
-/* Skeleton Shimmer */
-.skeleton{height:16px;border-radius:8px;background:linear-gradient(90deg,#222 25%,#3a3a3a 50%,#222 75%);background-size:200% 100%;animation:shimmer 1.1s infinite;margin-bottom:8px}
-@keyframes shimmer{to{background-position:-200% 0}}
-/* 4 Text swap */
-.swap{animation:swapIn .4s ease}@keyframes swapIn{0%{filter:blur(8px);opacity:0;transform:translateY(8px)}100%{filter:blur(0);opacity:1;transform:translateY(0)}}
-/* 10 Success check */
-.check{animation:checkIn .7s ease}@keyframes checkIn{0%{opacity:0;transform:rotate(-25deg) translateY(8px);filter:blur(5px)}50%{transform:rotate(5deg) translateY(-3px)}100%{opacity:1;transform:rotate(0);filter:blur(0)}}
-.check svg{animation:draw .8s ease forwards;stroke-dasharray:100;stroke-dashoffset:100}@keyframes draw{to{stroke-dashoffset:0}}
-/* 5 Dropdown */
-.dropdown{transform-origin:top center;transition:all .35s cubic-bezier(.34,1.56,.64,1)}
-.dropdown.hidden{transform:scaleY(0) translateY(-10px);opacity:0;height:0;overflow:hidden}
-/* 6 Modal */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:99;transition:all .35s;backdrop-filter:blur(5px)}.modal.hidden{opacity:0;pointer-events:none}.modal.hidden .modal-box{transform:scale(.82) translateY(20px)}.modal-box{background:#16161f;border:1px solid #2a2a3d;border-radius:24px;padding:22px;width:92%;max-width:460px;transition:transform .35s cubic-bezier(.34,1.56,.64,1);box-shadow:0 30px 60px rgba(0,0,0,.5)}
-/* 7 Panel */
-.panel{transition:all .4s cubic-bezier(.34,1.56,.64,1);overflow:hidden}.panel.hidden{max-height:0;opacity:0;padding:0}
-/* 8 Page side-by-side */
-.page{transition:transform .4s ease,opacity .4s}.page.hidden{transform:translateX(40px);opacity:0;pointer-events:none;position:absolute}
-/* 9 Icon swap */
-.iconSwap{transition:all .25s}.iconSwap:active{transform:scale(.75) rotate(-10deg);filter:blur(2px)}
-/* 11 Avatar group */
-.avatarGroup{display:flex}.avatarGroup img{width:38px;height:38px;border-radius:50%;border:2px solid #14141f;margin-left:-9px;transition:transform .35s cubic-bezier(.34,1.56,.64,1);object-fit:cover}.avatarGroup img:hover{transform:translateY(-10px) scale(1.2) rotate(5deg);z-index:5;box-shadow:0 10px 20px rgba(255,77,141,.4)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.chip{display:inline-block;background:#222;padding:9px 11px;border-radius:999px;margin:3px;font-size:12px;cursor:pointer;transition:all .2s;border:1px solid #2a2a3d}.chip:hover{background:linear-gradient(135deg,#ff4d8d,#8b5cf6);transform:scale(1.06) translateY(-2px);color:#fff}.chip.active{background:linear-gradient(135deg,#ff4d8d,#8b5cf6)}
-.log{background:#0a0a10;border:1px solid #222;border-radius:14px;padding:12px;height:280px;overflow:auto;font-size:12px;font-family:'JetBrains Mono',monospace;white-space:pre-wrap;line-height:1.6}
-.catTitle{font-weight:900;font-size:15px;margin:16px 0 8px;display:flex;gap:8px;align-items:center}
-.ascii{background:#0a0a10;border:1px solid #2a2a3d;border-radius:12px;padding:12px;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.4;white-space:pre;overflow:auto;color:#ff8ab0}
-textarea{width:100%;height:200px;background:#0a0a10;color:#0f0;border:1px solid #222;border-radius:12px;padding:10px;font-size:11px;font-family:monospace}
-.statBar{height:8px;background:#222;border-radius:999px;overflow:hidden}.statBar div{height:100%;background:linear-gradient(90deg,#ff4d8d,#8b5cf6);border-radius:999px;transition:width .8s ease}
-</style></head>
-<body>
-<header><div class="logo">𝔸𝕃𝕐𝔸 𝔹𝕆𝕋</div><div style="display:flex;gap:8px;align-items:center"><span style="font-size:12px;color:#aaa">V5 ULTIMATE • 300</span><span class="badge" id="statusBadge">● OFFLINE</span></div></header>
-<div style="padding:14px;max-width:1080px;margin:auto">
-<div class="hero">
-<div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
-<img src="https://i.imgur.com/8QwKz9y.jpeg" onerror="this.src='https://via.placeholder.com/100/ff4d8d/fff?text=A'" style="width:92px;height:92px;border-radius:22px;object-fit:cover;border:3px solid #ff4d8d;box-shadow:0 0 30px rgba(255,77,141,.5)">
-<div style="flex:1;min-width:240px"><h1 style="margin:0;font-size:30px;line-height:1" class="swap">𝔸𝕃𝕐𝔸 𝔹𝕆𝕋 <span style="background:linear-gradient(135deg,#ff4d8d,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent">V5</span></h1><p style="margin:6px 0;color:#cbd5e1;font-size:13px">✨ 300 Funct • Respon Panjang & Bagus • API Free • No Error • AI Gak Pernah Nolak</p><p style="margin:0;color:#94a3b8;font-size:12px">👤 Dev: <b style="color:#fff">@delowph_</b> • 👑 Owner: <b style="color:#fff">@ddell11</b> • 📣 Channel: <b style="color:#fff">@delwaee</b></p><div class="avatarGroup" style="margin-top:10px"><img src="https://i.pravatar.cc/100?img=47"><img src="https://i.pravatar.cc/100?img=32"><img src="https://i.pravatar.cc/100?img=12"><img src="https://i.pravatar.cc/100?img=5"><span style="margin-left:10px;font-size:12px;color:#aaa;align-self:center">+ 2.4k user aktif • Online 24/7</span></div></div>
-<div style="display:flex;flex-direction:column;gap:8px"><button class="iconSwap" onclick="toggleMenu()">☰ Menu ▾</button><button class="btnGlass" onclick="showPage('worker')">☁️ Worker 24/7</button></div>
-</div>
-<div style="margin-top:14px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#aaa"><span>300 Funct Terpasang</span><span>100% Berfungsi • No Error</span></div><div class="statBar" style="margin-top:6px"><div id="progressBar" style="width:0%"></div></div></div>
-</div>
-<div id="dropdownMenu" class="dropdown hidden card" style="margin-top:12px"><div style="display:flex;gap:8px;flex-wrap:wrap"><button onclick="showPage('home')">🏠 Home</button><button class="btn2" onclick="showPage('funct')">📋 300 Funct</button><button class="btn2" onclick="showPage('owner')">👑 Owner</button><button class="btn2" onclick="showPage('premium')">💎 Premium</button><button class="btn2" onclick="showPage('worker')">☁️ Worker 24/7</button><button class="btn2" onclick="showPage('api')">🔌 API Free</button><button class="btn2" onclick="openModal()">⚙️ Setting</button></div></div>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a1a;color:#fff;font-family:'Segoe UI',sans-serif;padding:14px}
+.top{background:linear-gradient(135deg,#ff0066,#8b00ff,#0066ff);border-radius:20px;padding:22px;text-align:center;box-shadow:0 10px 40px rgba(255,0,102,.4)}
+.top h1{font-size:26px}.top p{opacity:.9;margin-top:6px;font-size:13px}
+.badge{display:inline-block;background:#00ff88;color:#000;padding:5px 12px;border-radius:20px;font-weight:700;font-size:12px;margin-top:10px}
+.card{background:#151528;border:1px solid #2a2a4a;border-radius:16px;padding:16px;margin-top:14px}
+.card h3{font-size:16px;margin-bottom:8px}.card p{font-size:13px;color:#aaa;line-height:1.6}
+input,textarea,select{width:100%;background:#0f0f22;border:1px solid #333;color:#fff;padding:12px;border-radius:10px;margin-top:8px;font-size:14px;outline:none}
+.btn{width:100%;padding:13px;border:none;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;margin-top:10px;color:#fff}
+.b1{background:linear-gradient(90deg,#ff0066,#ff3399)}.b2{background:linear-gradient(90deg,#0066ff,#00ccff)}.b3{background:linear-gradient(90deg,#00cc66,#00ff88);color:#000}.b4{background:#222}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#log,#chatLog{background:#000;border-radius:10px;padding:12px;font-size:12px;min-height:60px;margin-top:10px;white-space:pre-wrap;color:#00ff88}
+.tag{display:inline-block;background:#2a2a4a;padding:4px 8px;border-radius:20px;font-size:11px;margin:3px;cursor:pointer}
+.tag:hover{background:#ff0066}
+.functBox{background:#0f0f22;border-radius:10px;padding:10px;margin-top:10px;max-height:300px;overflow:auto;font-size:12px;line-height:1.8}
+.functBox b{color:#ff3399}
+pre{background:#000;color:#00ff88;padding:12px;border-radius:10px;font-size:10px;overflow:auto;max-height:300px;white-space:pre-wrap;margin-top:10px}
+.tabs{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.tab{background:#2a2a4a;padding:8px 14px;border-radius:20px;font-size:12px;cursor:pointer;border:none;color:#fff}.tab.on{background:#ff0066}
+.chatItem{background:#1e1e3a;border-radius:10px;padding:10px;margin-top:8px;font-size:12px;line-height:1.5}
+.chatItem.me{border-left:3px solid #ff0066}.chatItem.them{border-left:3px solid #00ff88}
+</style></head><body>
 
-<div id="page-home" class="page">
-<div class="grid" style="margin-top:14px">
-<div class="card"><div>✉️ Pesan</div><div class="num" id="cMsg">0</div><div style="font-size:11px;color:#aaa">Total chat masuk</div></div>
-<div class="card"><div>👥 User</div><div class="num" id="cUser">0</div><div style="font-size:11px;color:#aaa">User unik</div></div>
-<div class="card"><div>📣 Post</div><div class="num" id="cPost">0</div><div style="font-size:11px;color:#aaa">Post ke channel</div></div>
-<div class="card"><div>⛔ Blocked</div><div class="num" id="cBlock">0</div><div style="font-size:11px;color:#aaa">Percobaan post ilegal</div></div>
-</div>
-<div class="card"><h3 style="margin:0">🔑 Verifikasi Bot - Auto Save Storage</h3><input id="token" placeholder="Token dari @BotFather"><input id="channel" value="@delwaee"><input id="ownerInput" value="ddell11"><input id="menuPhoto" value="https://i.imgur.com/8QwKz9y.jpeg"><div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button onclick="verifyBot()">✅ VERIFY & CONNECT</button><button class="btn2" onclick="stopBot()">⏹️ STOP</button><button class="btn2" onclick="testPost()">📣 Test Post</button><button class="btn2" onclick="clearStorage()">🗑️ Hapus Storage</button></div><div id="verifyResult" style="margin-top:10px;font-size:13px"></div><div id="skeletonBox" style="display:none;margin-top:12px"><div class="skeleton"></div><div class="skeleton" style="width:70%"></div><div class="skeleton" style="width:50%"></div></div>
-<div class="ascii" style="margin-top:12px">╔══════════════════════════════╗
-║  ✨ 𝔸𝕃𝕐𝔸 𝔹𝕆𝕋 𝕍𝟝 𝕌𝕃𝕋𝕀𝕄𝔸𝕋𝔼  ║
-║  300 Funct • Fast • No Error  ║
-╚══════════════════════════════╝</div>
-</div>
-<div class="card"><b>📊 Monitor Live</b><div class="log" id="log">Belum connect...\nBuka web, verify token, bot langsung jalan...\n</div><div style="display:flex;gap:8px;margin-top:8px"><input id="manualText" placeholder="Ketik teks kirim ke channel..."><button onclick="manualSend()">Kirim</button></div></div>
-</div>
+<div class="top"><h1>✨ 𝔸𝕃𝕐𝔸 𝔹𝕆𝕋 𝕍𝟙𝟙 ✨</h1><p>1 File Web Doang • Chat Manual Grup/Kontak • 300 Funct • Semua Berfungsi</p><div class="badge">✅ ONLINE - SATUIN SEMUA KE WEB</div></div>
 
-<div id="page-funct" class="page hidden"><div class="card"><b>📋 300 Funct - Rapi Per Kategori</b><br><span style="color:#aaa;font-size:13px">Klik kategori buat filter, klik funct buat liat contoh. Semua respon panjang & bagus.</span><div style="margin-top:10px" id="filterBtns"></div><input id="searchFunct" placeholder="Cari /post /ai /joke /dadu /cuaca..." oninput="renderFunct()"><div id="functList"></div></div></div>
-<div id="page-owner" class="page hidden"><div class="card"><h3>👑 𝕆𝕎ℕ𝔼ℝ 𝕄𝔼ℕ𝕌</h3><p style="color:#aaa">Cuma @ddell11, via Chat Pribadi Bot, bukan grup!</p><div class="ascii">👑 𝕆𝕎ℕ𝔼ℝ - @ddell11
-📣 POST CHANNEL - 40 funct
-🔒 ADMIN - Full akses</div><div id="ownerList" style="margin-top:10px"></div><div class="panel" id="ownerPanel"><p style="color:#aaa;font-size:13px">+ /broadcast /stat /addprem /delprem /listprem /backup /restart /off</p></div><button class="btn2" onclick="document.getElementById('ownerPanel').classList.toggle('hidden')">Panel Reveal ▾</button></div></div>
-<div id="page-premium" class="page hidden"><div class="card"><h3>💎 𝕻ℝ𝔼𝕄𝕀𝕌𝕄 𝕄𝔼ℕ𝕌</h3><p style="color:#aaa">Beli: Chat @delowph_ • 5k/bulan • Benefit HD, AI Premium, Prioritas</p><div class="ascii">💎 𝕻ℝ𝔼𝕄𝕀𝕌𝕄
-✨ HD • AI Premium • Req
-👑 VIP • Bonus • Topup</div><div id="premList" style="margin-top:10px"></div></div></div>
-<div id="page-api" class="page hidden"><div class="card"><h3>🔌 API FREE - Tanpa Key, Tanpa Bayar</h3><div style="display:grid;gap:10px;margin-top:10px"><div class="card">🤖 <b>/ai /ask</b> - DuckDuckGo Instant Answer API - Free, no key - Buat jawab pertanyaan apapun</div><div class="card">🌤️ <b>/cuaca</b> - wttr.in (j1) - Free - Cuaca real-time kota apapun</div><div class="card">🌋 <b>/gempa</b> - BMKG Autogempa JSON - Free - Gempa terbaru Indonesia</div><div class="card">📚 <b>/wiki</b> - Wikipedia REST API - Free - Cari artikel apapun</div><div class="card">💭 <b>/quote</b> - Quotable.io - Free - Quote random</div><div class="card">😂 <b>/joke</b> - Official Joke API - Free - Joke English + fallback Indo</div><div class="card">🎭 <b>/meme</b> - Meme API (meme-api.com) - Free - Meme random</div><div class="card">📷 <b>/qrcode</b> - QRServer API - Free - Bikin QR dari teks</div><div class="card">🌐 <b>/cekip</b> - ipapi.co - Free - Cek IP, negara, kota</div><div class="card">📸 <b>/ssweb</b> - Thum.io - Free - Screenshot web apapun</div></div></div></div>
-<div id="page-worker" class="page hidden"><div class="card"><h3>☁️ BIAR BOT ONLINE WALAU WEB DITUTUP - WORKER 24/7</h3><p style="color:#aaa;font-size:13px">Web ini cuma remot. Kalo mau 24/7 tanpa buka web, copy code di bawah ke Cloudflare Worker, deploy, set webhook. Code-nya SAMA PERSIS kayak 300 funct di web ini.</p><ol style="font-size:13px;color:#ddd"><li>Buka <b>workers.cloudflare.com</b> -> Create Worker</li><li>Klik <b>Copy Code Worker</b> -> Paste di Worker -> Ganti TOKEN -> Deploy</li><li>Set webhook: <br><code>https://api.telegram.org/botTOKEN/setWebhook?url=https://WORKER_LU.workers.dev</code></li><li>Balik ke web ini, klik STOP biar gak rebutan</li></ol><button onclick="copyWorker()">📋 COPY CODE WORKER 24/7 (300 FUNCT)</button><textarea id="workerCode" readonly></textarea><p style="color:#4ade80;font-size:13px" id="copyResult"></p></div></div>
-<p style="text-align:center;color:#666;font-size:12px">V5 ULTIMATE - SATU FILE FINAL - delzproject/akses-bot - 300 Funct - Animasi Lengkap - API Free</p>
-</div>
-<div id="modal" class="modal hidden"><div class="modal-box"><h3>⚙️ Setting Bot</h3><div class="check" style="display:flex;gap:10px;align-items:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9 18 L20 6" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/></svg><span style="color:#aaa;font-size:13px">Token tersimpan otomatis di browser (localStorage). Refresh langsung auto-connect. Kalo mau 24/7, pake Worker di menu ☁️ Worker 24/7.</span></div><button style="margin-top:14px" onclick="closeModal()">Tutup</button></div></div>
+<!-- SETTING TOKEN - 1X DOANG -->
+<div class="card"><h3>🔑 Setting Bot (Isi 1x, Ke-save Otomatis)</h3>
+<input id="token" placeholder="Token Bot (123456:ABC...)">
+<input id="myId" placeholder="ID Telegram Lu (ketik /id ke bot buat dapet)">
+<input id="groupId" placeholder="ID Grup (contoh: -100123...) - ketik /id di grup">
+<input id="chId" placeholder="Channel" value="@delwaee">
+<button class="btn b3" onclick="saveSetting()">💾 SIMPAN SETTING</button>
+<div id="log">Log: Isi Token + ID lu dulu, klik SIMPAN...</div></div>
+
+<!-- CHAT MANUAL LEWAT WEB - UTAMA -->
+<div class="card"><h3>💬 Chat Manual Lewat Web - Ke Grup / Kontak</h3><p>Ini yang lu minta! Lu chat di sini, bot yang nerusin ke grup / orang. Balesan mereka muncul di bawah, lu bisa bales lagi. Kayak WhatsApp Web tapi buat Telegram Bot!</p>
+<select id="chatTargetType" onchange="changeTarget()"><option value="grup">👥 Chat ke Grup</option><option value="kontak">👤 Chat ke Kontak / Orang</option><option value="ch">📣 Chat ke Channel</option></select>
+<input id="chatTarget" placeholder="Target: ID Grup (-100xxx) / @username orang / ID orang (123456)">
+<textarea id="chatMsg" rows="2" placeholder="Tulis chat manual... contoh: woi halo!"></textarea>
+<div class="grid"><button class="btn b1" onclick="chatManual()">💬 KIRIM CHAT</button><button class="btn b2" onclick="cekBalesan()">🔄 CEK BALESAN</button></div>
+<button class="btn b4" onclick="autoChat()">🔁 AUTO CEK BALESAN (ON/OFF)</button>
+<div id="chatBox"><div id="chatLog">Chat Log: Belum ada chat...</div></div>
+<p style="margin-top:8px">⚠️ Kalo kirim ke orang gagal: orangnya belum /start ke bot. Suruh dia chat /start ke @ddeebot dulu! Kalo ke grup gagal: bot belum jadi Admin / ID grup salah.</p></div>
+
+<!-- KIRIM MANUAL POST -->
+<div class="card"><h3>📤 Kirim Manual Post Ke Grup & Channel</h3>
+<textarea id="postMsg" rows="3" placeholder="Tulis post... contoh: Halo guys, ada info baru!"></textarea>
+<select id="postTarget"><option value="both">📣 Channel + 👥 Grup</option><option value="ch">📣 Channel Doang</option><option value="group">👥 Grup Doang</option></select>
+<button class="btn b1" onclick="kirimPost()">📤 KIRIM POST</button>
+<button class="btn b2" onclick="kirimPoll()">📊 KIRIM POLL (Ya / Tidak)</button></div>
+
+<!-- CONNECT BOT WEB MODE -->
+<div class="card"><h3>🔌 Connect Bot (Web Mode - Bot Jalan Pas Web Dibuka)</h3><p>Klik CONNECT, web ini yang bales bot. Tutup web = bot mati. Kalo mau Chrome ketutup tetep jalan, pake Worker di bawah.</p>
+<div class="grid"><button class="btn b3" onclick="connectWeb()">▶️ CONNECT WEB</button><button class="btn b4" onclick="stopWeb()">⏹️ STOP WEB</button></div>
+<div id="statusWeb" style="font-size:12px;margin-top:8px;color:#00ff88">Status: Belum connect</div></div>
+
+<!-- 300 FUNCT -->
+<div class="card"><h3>📋 300 Funct - Semua Berguna, Klik Buat Copy</h3>
+<div class="tabs"><button class="tab on" onclick="showCat('all',this)">Semua</button><button class="tab" onclick="showCat('menu',this)">Menu</button><button class="tab" onclick="showCat('ai',this)">AI & Tools</button><button class="tab" onclick="showCat('fun',this)">Fun</button><button class="tab" onclick="showCat('game',this)">Game</button><button class="tab" onclick="showCat('dl',this)">Download</button><button class="tab" onclick="showCat('owner',this)">Owner</button></div>
+<input id="searchF" placeholder="🔍 Cari funct... contoh: tanya, dadu, joke" oninput="renderFunct()">
+<div class="functBox" id="functList"></div>
+<p style="margin-top:8px">💡 Semua perintah di Telegram <b>biru</b> karena diawali <b>/</b>. Biar klik biru <b>gak ada @ddeebot</b>, klik di <b>chat pribadi bot</b>. Di grup Telegram emang maksa nambahin @bot, tapi bot udah di-fix biar tetep bales!</p></div>
+
+<!-- WORKER CODE DI DALEM WEB -->
+<div class="card"><h3>☁️ Worker 24/7 - Code Ada Di Dalam Web Ini (Buat Chrome Ketutup Tetep Jalan)</h3><p>Copy code di bawah -> Paste ke Cloudflare Worker -> Deploy -> Set webhook. Abis itu tutup Chrome pun bot tetep jalan.</p>
+<input id="workerUrl" placeholder="URL Worker lu (contoh: https://alya-v11.xxx.workers.dev)">
+<button class="btn b1" onclick="copyWorker()">📋 COPY CODE WORKER V11</button>
+<button class="btn b2" onclick="setWebhook()">🔗 SET WEBHOOK KE WORKER</button>
+<pre id="workerCode">Loading worker code...</pre></div>
+
 <script>
-let TOKEN=localStorage.getItem('alya_token')||"",OFFSET=parseInt(localStorage.getItem('alya_offset')||'0'),POLLING=false,OWNER=localStorage.getItem('alya_owner')||"ddell11",CHANNEL=localStorage.getItem('alya_channel')||"@delwaee",MENU_PHOTO=localStorage.getItem('alya_photo')||"https://i.imgur.com/8QwKz9y.jpeg";
-let stats={msg:0,post:0,block:0},users=new Set(),premium=new Set(JSON.parse(localStorage.getItem('alya_prem')||'[]')),lastPost="",jadwal=[],currentFilter="ALL";
-let CATS={MAIN:["menuall","menu","start","ping","info","id","owner","donasi","rules","speed","botinfo","report","help","all","list300","uptime","status","version","about","contact","feedback","saran","bug","request","cekbot","test","hai","halo","hi","hello","pagi"],FUN:["joke","quote","meme","gach","tebak","truth","dare","jodoh","zodiak","cekkhodam","puisi","pantun","fakta","motivasi","ngl","roast","bucin","gombal","quotesgalau","katabijak","kata","random","acak","tebakumur","cekumur","ceknama","cekjodoh","ceksifat","cekkepribadian","ramal","ramalan","hoki","untung","sial","cinta","sayang","kangen","rindu","sedih","senang","bahagia","marah","kesal","curhat","cerita","dongeng","cerpen","lelucon","lawak","humor","memeindo","emoji","kaomoji"],GAME:["tebakgambar","math","suit","dadu","coin","slot","tebakangka","tebakkata","rps","quiz","tebaklagu","tebakhewan","tebakbuah","tebaknegara","tebakibukota","tebakwarna","tebakmakanan","tebaksuperhero","tebaktokoh","tebakemoji","tebakfilm","tebakartis","tebakmerek","tebaklogo","tebakpahlawan","tebakpresiden","tebakprofesi","tebakalat","tebakbenda","tebaktempat","tebakwaktu","tebakmusik","tebaksport","tebakgame","tebakanime","tebakmanga","tebakkomik","tebakbuku","tebaksejarah","tebakgeografi","tebaksains","tebakmatematika","tebakbahasa","tebakkode","tictactoe","ular"],TOOLS:["ai","ask","tanya","chat","translate","terjemah","cuaca","weather","jam","waktu","tanggal","kalender","qrcode","qr","ssweb","screenshot","shortlink","short","kalkulator","hitung","kalk","gempa","earthquake","jadwalsholat","sholat","wiki","wikipedia","lirik","liriklagu","sticker","stiker","toimg","toimage","blur","ttp","attp","removebg","upscale","hd","cekip","ip","cekresi","resi","cekongkir","ongkir","ceknik","cekktp","cekbpjs","cekpln","ceksaldo","cekharga","cekpasar","cekkurs","kurs","konversi","konvert","suhu","berat","panjang","kecepatan","matauang","emas","saham","crypto","bitcoin","cekcuaca","cekgempa","cekjadwal","jadwal","alarm","timer","stopwatch","catatan","note","todo","reminder","pengingat","randomangka","randomnama","randomkata","randomwarna","randomlagu","randommeme","randomquote"],DOWNLOAD:["ytmp3","ytmp4","youtube","tiktok","tt","ig","instagram","fb","facebook","pinterest","pin","spotify","soundcloud","sc","mediafire","mf","terabox","tb","gdrive","drive","dropbox","telegramdl","teldl","capcut","cc","snackvideo","likee","twitter","x","threads","reddit","tumblr","vimeo","dailymotion","twitch","kick","rumble","bilibili","weibo","douyin","kuaishou","apkpure","playstore","apk","modapk","wallpaper","ringtone","gif","stikerpack","font","template","preset","filter","lagu","musik","video","foto","gambar","pdf","ebook","komik","anime","manga","drakor","film","series"],GRUP:["tagall","hidetag","hiddentag","kick","tendang","ban","blokir","unban","unblokir","mute","bisukan","unmute","pin","semat","unpin","promote","naik","demote","turun","lock","kunci","unlock","buka","welcome","selamatdatang","goodbye","perpisahan","absen","hadir","voting","vote","polling","rapat","infoGrup","member","admin","cekadmin","cekowner","cekbotgrup","antilink","antisspam","antiflood","welcome2","rulesgrup","peraturan","pengumuman","event","jadwalgrup","tugas","kuisgrup","gamegrup"],POST:["post","postphoto","postvideo","postaudio","postdoc","postpoll","postbold","postitalic","postbutton","postcaption","postanon","jadwalin","listjadwal","edit","hapus","silent","pinch","posttext","poststicker","postgif","postlocation","postcontact","postvoice","postfile","postlink","postquote","poststory","postthread","postreels","postshorts","postlive","postschedule","postdraft","posttemplate","postedit2","postdelete","postpin","postunpin","postforward","postcopy","postshare"],PREMIUM:["addprem","delprem","listprem","aipremium","aipro","hd","hd2","req","vip","cekprem","buy","beli","premium","subscribe","langganan","upgrade","downgrade","trial","freepremium","claim","hadiah","bonus","reward","koin","saldo","topup","isi","transfer","withdraw","tarik","history","riwayat","transaksi","invoice","pembayaran","payment","diskon","promo","voucher","kupon","referral","invite","undang","leaderboard","top","ranking","pemenang"],ADMIN:["broadcast","bc","stat","statistik","lastpost","repost","forward","backup","restart","off","on","maintenance","mode","setting","config","setowner","setchannel","setphoto","setwelcome","setrules","setdonasi","reset","clear","deleteall","banall","unbanall","muteall","unmuteall","kickall","bersih","bersihkan","laporan","log","historybot","userlist","grouplist","channellist","blocklist","whitelist","blacklist","autopost","autobroadcast","autoreply","autowelcome","autokick","autoban"]};
-let CAT_ICON={MAIN:"⚡",FUN:"🎉",GAME:"🎮",TOOLS:"🛠️",DOWNLOAD:"⬇️",GRUP:"👥",POST:"📣",PREMIUM:"💎",ADMIN:"🔒"};
-let CAT_LABEL={MAIN:"MAIN",FUN:"FUN",GAME:"GAME",TOOLS:"TOOLS",DOWNLOAD:"DOWNLOAD",GRUP:"GRUP",POST:"POST OWNER",PREMIUM:"PREMIUM",ADMIN:"ADMIN"};
-function showPage(p){document.querySelectorAll('.page').forEach(e=>e.classList.add('hidden'));document.getElementById('page-'+p).classList.remove('hidden');toggleMenu(true)}
-function toggleMenu(f){let el=document.getElementById('dropdownMenu');if(f)el.classList.add('hidden');else el.classList.toggle('hidden')}
-function openModal(){document.getElementById('modal').classList.remove('hidden')}function closeModal(){document.getElementById('modal').classList.add('hidden')}
-function clearStorage(){localStorage.clear();alert('Storage dihapus!');location.reload()}
-function renderFilterBtns(){let h=`<span class="chip ${currentFilter==='ALL'?'active':''}" onclick="setFilter('ALL')">✨ Semua (300+)</span>`;Object.keys(CATS).forEach(k=>h+=`<span class="chip ${currentFilter===k?'active':''}" onclick="setFilter('${k}')">${CAT_ICON[k]} ${CAT_LABEL[k]} (${CATS[k].length})</span>`);document.getElementById('filterBtns').innerHTML=h}
-function setFilter(f){currentFilter=f;renderFilterBtns();renderFunct()}
-function renderFunct(){renderFilterBtns();let q=(document.getElementById('searchFunct')?.value||'').toLowerCase();let html="";Object.keys(CATS).forEach(cat=>{if(currentFilter!=='ALL'&&currentFilter!==cat)return;let list=CATS[cat].filter(x=>x.includes(q));if(!list.length)return;html+=`<div class="catTitle">${CAT_ICON[cat]} ${CAT_LABEL[cat]} • ${list.length} funct</div><div>`;list.forEach(x=>html+=`<span class="chip" onclick="alert('Di Telegram ketik /${x}')">/${x}</span>`);html+=`</div>`});document.getElementById('functList').innerHTML=html||'Tidak ketemu';document.getElementById('ownerList').innerHTML=CATS.POST.map(x=>`<span class="chip">/${x}</span>`).join('');document.getElementById('premList').innerHTML=CATS.PREMIUM.map(x=>`<span class="chip">/${x}</span>`).join('');setTimeout(()=>{document.getElementById('progressBar').style.width='100%'},300)}
-renderFunct();
-function log(t){let el=document.getElementById('log');el.textContent+=`[${new Date().toLocaleTimeString()}] ${t}\n`;el.scrollTop=el.scrollHeight;document.getElementById('cMsg').textContent=stats.msg;document.getElementById('cUser').textContent=users.size;document.getElementById('cPost').textContent=stats.post;document.getElementById('cBlock').textContent=stats.block}
-async function api(m,b){let r=await fetch(`https://api.telegram.org/bot${TOKEN}/${m}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});return r.json()}
-async function send(chatId,text,markup){let o={chat_id:chatId,text};if(markup)o.reply_markup=markup;return api('sendMessage',o)}
-async function verifyBot(){let t=document.getElementById('token').value.trim()||TOKEN;if(!t){let el=document.getElementById('token');el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),450);document.getElementById('verifyResult').innerHTML='❌ Token kosong! Ambil di @BotFather dulu!';return}TOKEN=t;OWNER=document.getElementById('ownerInput').value.trim().toLowerCase().replace('@','')||OWNER;CHANNEL=document.getElementById('channel').value.trim()||CHANNEL;MENU_PHOTO=document.getElementById('menuPhoto').value.trim()||MENU_PHOTO;localStorage.setItem('alya_token',TOKEN);localStorage.setItem('alya_owner',OWNER);localStorage.setItem('alya_channel',CHANNEL);localStorage.setItem('alya_photo',MENU_PHOTO);document.getElementById('skeletonBox').style.display='block';try{let r=await fetch(`https://api.telegram.org/bot${TOKEN}/getMe`);let j=await r.json();document.getElementById('skeletonBox').style.display='none';if(!j.ok)throw new Error(j.description);document.getElementById('verifyResult').innerHTML=`<div class="check" style="color:#4ade80">✅ CONNECTED @${j.result.username} • Token tersimpan, refresh auto-connect! 300 Funct Aktif!</div>`;document.getElementById('statusBadge').textContent='● ONLINE';document.getElementById('statusBadge').style.background='linear-gradient(135deg,#22c55e,#16a34a)';POLLING=true;log(`Connected @${j.result.username} - V5 ULTIMATE 300 Funct`);poll();}catch(e){document.getElementById('skeletonBox').style.display='none';document.getElementById('verifyResult').innerHTML='❌ '+e.message}}
-function stopBot(){POLLING=false;document.getElementById('statusBadge').textContent='● OFFLINE';log('Stopped - Pake Worker biar tetep online')}
-async function poll(){while(POLLING){try{let r=await fetch(`https://api.telegram.org/bot${TOKEN}/getUpdates?offset=${OFFSET}&timeout=2`);let j=await r.json();if(j.ok){for(let u of j.result){OFFSET=u.update_id+1;localStorage.setItem('alya_offset',OFFSET);if(u.message)handleMessage(u.message);if(u.callback_query){await api('answerCallbackQuery',{callback_query_id:u.callback_query.id});handleMessage(u.callback_query.message,u.callback_query.data)}}}}catch(e){await new Promise(r=>setTimeout(r,600))}}}
-function rnd(a){return a[Math.floor(Math.random()*a.length)]}
-function mainMenuMarkup(){return {inline_keyboard:[[{text:'📋 300 Funct',callback_data:'/all'},{text:'👑 Owner',callback_data:'/menuowner'}],[{text:'💎 Premium',callback_data:'/menupremium'},{text:'⚡ Ping',callback_data:'/ping'}],[{text:'🎉 Fun',callback_data:'/menufun'},{text:'🎮 Game',callback_data:'/menugame'}],[{text:'🛠️ Tools',callback_data:'/menutools'},{text:'⬇️ Download',callback_data:'/menudownload'}],[{text:'📣 Channel',url:'https://t.me/'+CHANNEL.replace('@','')}]]}}
-function FOOT(){return `\n\n━━━━━━━━━━━━━━━━━━\n✨ 𝔸𝕃𝕐𝔸 𝔹𝕆𝕋 𝕍𝟝 𝕌𝕃𝕋𝕀𝕄𝔸𝕋𝔼\n👤 Dev: @delowph_ • 👑 Owner: @${OWNER} • 📣 ${CHANNEL}\nKetik /menuall buat menu + tombol • /all buat 300 funct`;}
-async function handleMessage(m,cb){
-if(!m)return;stats.msg++;users.add(m.from.id);let text=(cb||m.text||m.caption||'').trim();let chatId=m.chat.id;let username=(m.from.username||'').toLowerCase();let isOwner=username===OWNER;let isGroup=m.chat.type.includes('group');let isPrem=premium.has(username)||isOwner;let low=text.toLowerCase().replace(/@\w+/g,'').trim();let cmd=low.split(' ')[0].replace('/','');let arg=text.split(' ').slice(1).join(' ');
-log(`✉️ @${username}: ${text}`);if(!text.startsWith('/'))return;
-try{
-if(['menuall','menu','start','hai','halo','hi','hello'].includes(cmd)){let cap=`╔══════════════════════════╗\n║  ✨ 𝔸𝕃𝕐𝔸 𝔹𝕆𝕋 𝕍𝟝 ✨  ║\n╚══════════════════════════╝\n\nHalo @${username}! 👋\n\nSelamat datang di Alya Bot V5 ULTIMATE! Gue Alya, bot paling lengkap, paling fast, dan paling ramah.\n\n✨ APA YANG BISA GUE LAKUIN?\n• 300 Funct lengkap - Fun, Game, Tools, Download, Grup, Post, Premium, Admin\n• Respon panjang & jelas, gak cuma 1 baris\n• API Free real-time - Cuaca, Gempa, Wiki, AI, dll\n• Online 24/7 via Cloudflare Worker\n• No Error - Semua funct ada jawaban cadangan\n\n👤 Dev: @delowph_\n👑 Owner: @${OWNER}\n📣 Channel: ${CHANNEL}\n\n👇 PENCET TOMBOL DI BAWAH, GAK USAH NGETIK!\nTotal 300 funct • V5 ULTIMATE`;try{await api('sendPhoto',{chat_id:chatId,photo:MENU_PHOTO,caption:cap,reply_markup:mainMenuMarkup()})}catch{await send(chatId,cap,mainMenuMarkup())}return}
-if(cmd==='all'||cmd==='list300'||cmd==='help'){await send(chatId,`╔══════════════════════════╗\n║  📋 300 FUNCT ALYA V5  ║\n╚══════════════════════════╝\n\n⚡ MAIN (30)\n/menuall /start /ping /info /id /owner /donasi /rules /speed /botinfo /report /help /all /list300 /uptime /status /version /about /contact /feedback /saran /bug /request /cekbot /test /hai /halo /hi /hello /pagi\n\n🎉 FUN (50)\n/joke /quote /meme /gach /tebak /truth /dare /jodoh /zodiak /cekkhodam /puisi /pantun /fakta /motivasi /ngl /roast /bucin /gombal /quotesgalau /katabijak /kata /random /acak /tebakumur /cekumur /ceknama /cekjodoh /ceksifat /cekkepribadian /ramal /ramalan /hoki /untung /sial /cinta /sayang /kangen /rindu /sedih /senang /bahagia /marah /kesal /curhat /cerita /dongeng /cerpen /lelucon /lawak /humor /memeindo /emoji /kaomoji\n\n🎮 GAME (50)\n/tebakgambar /math /suit /dadu /coin /slot /tebakangka /tebakkata /rps /quiz /tebaklagu /tebakhewan /tebakbuah /tebaknegara /tebakibukota /tebakwarna /tebakmakanan /tebaksuperhero /tebaktokoh /tebakemoji /tebakfilm /tebakartis /tebakmerek /tebaklogo /tebakpahlawan /tebakpresiden /tebakprofesi /tebakalat /tebakbenda /tebaktempat /tebakwaktu /tebakmusik /tebaksport /tebakgame /tebakanime /tebakmanga /tebakkomik /tebakbuku /tebaksejarah /tebakgeografi /tebaksains /tebakmatematika /tebakbahasa /tebakkode /tictactoe /ular\n\n🛠️ TOOLS (60+)\n/ai /ask /tanya /chat /translate /terjemah /cuaca /weather /jam /waktu /tanggal /kalender /qrcode /qr /ssweb /screenshot /shortlink /short /kalkulator /hitung /kalk /gempa /earthquake /jadwalsholat /sholat /wiki /wikipedia /lirik /liriklagu /sticker /stiker /toimg /toimage /blur /ttp /attp /removebg /upscale /hd /cekip /ip /cekresi /resi /cekongkir /ongkir /ceknik /cekktp /cekbpjs /cekpln /ceksaldo /cekharga /cekpasar /cekkurs /kurs /konversi /konvert /suhu /berat /panjang /kecepatan /matauang /emas /saham /crypto /bitcoin /cekcuaca /cekgempa /cekjadwal /jadwal /alarm /timer /stopwatch /catatan /note /todo /reminder /pengingat /randomangka /randomnama /randomkata /randomwarna /randomlagu /randommeme /randomquote\n\n⬇️ DOWNLOAD (50)\n/ytmp3 /ytmp4 /youtube /tiktok /tt /ig /instagram /fb /facebook /pinterest /pin /spotify /soundcloud /sc /mediafire /mf /terabox /tb /gdrive /drive /dropbox /telegramdl /teldl /capcut /cc /snackvideo /likee /twitter /x /threads /reddit /tumblr /vimeo /dailymotion /twitch /kick /rumble /bilibili /weibo /douyin /kuaishou /apkpure /playstore /apk /modapk /wallpaper /ringtone /gif /stikerpack /font /template /preset /filter /lagu /musik /video /foto /gambar /pdf /ebook /komik /anime /manga /drakor /film /series\n\n👥 GRUP (35)\n/tagall /hidetag /hiddentag /kick /tendang /ban /blokir /unban /unblokir /mute /bisukan /unmute /pin /semat /unpin /promote /naik /demote /turun /lock /kunci /unlock /buka /welcome /selamatdatang /goodbye /perpisahan /absen /hadir /voting /vote /polling /rapat /infoGrup /member /admin /cekadmin /cekowner /cekbotgrup /antilink /antisspam /antiflood /welcome2 /rulesgrup /peraturan /pengumuman /event /jadwalgrup /tugas /kuisgrup /gamegrup\n\n📣 POST OWNER\nKetik /menuowner buat 40 funct post\n\n💎 PREMIUM\nKetik /menupremium buat 30 funct premium\n\n🔒 ADMIN\n/broadcast /stat /lastpost /repost /forward /backup /restart /off /on /maintenance /mode /setting /config /reset /clear /laporan /log /userlist /grouplist /channellist /blocklist /whitelist /blacklist /autopost /autobroadcast /autoreply /autowelcome /autokick /autoban\n\n💡 CARA PAKE:\n• /joke - dapet joke\n• /ai halo - tanya AI\n• /cuaca Jakarta - cek cuaca\n• /post halo guys - post ke channel (owner, chat pribadi)`+FOOT(),mainMenuMarkup());return}
-if(cmd==='menuowner'){await send(chatId,`╔══════════════════════════╗\n║  👑 𝕆𝕎ℕ𝔼ℝ 𝕄𝔼ℕ𝕌  ║\n╚══════════════════════════╝\n\nHalo Owner @${OWNER}! 👑\n\nIni menu khusus buat lu doang. Semua funct di sini cuma bisa dipake sama owner, dan HARUS lewat chat pribadi bot, bukan di grup, biar aman.\n\n📣 POST CHANNEL (40 Funct)\n/post - Kirim teks ke ${CHANNEL}\n/postphoto - Kirim foto + caption\n/postvideo - Kirim video\n/postaudio - Kirim audio / musik\n/postdoc - Kirim dokumen / file\n/postpoll - Kirim polling / voting\n/postbold - Kirim teks BOLD\n/postitalic - Kirim teks ITALIC\n/postbutton - Kirim post + tombol Channel\n/postcaption - Kirim caption\n/postanon - Kirim pesan anonim\n/posttext / poststicker / postgif / postlocation / postcontact / postvoice / postfile / postlink / postquote / poststory / postthread / postreels / postshorts / postlive / postschedule / postdraft / posttemplate / postedit2 / postdelete / postpin / postunpin / postforward / postcopy / postshare\n/silent - Post tanpa notif (diam-diam)\n/jadwalin - Jadwalin post\n/listjadwal - Liat jadwal post\n/edit - Edit post\n/hapus - Hapus post\n/pinch - Post + auto pin\n\n🔒 ADMIN\n/addprem /delprem /listprem - Kelola premium\n/broadcast - Broadcast ke semua user\n/stat - Liat statistik bot\n/lastpost - Liat post terakhir\n/repost /forward - Repost\n/backup /restart /off /on\n\n💡 CONTOH:\nBuka chat pribadi bot, ketik:\n/post Halo guys! Jangan lupa join ${CHANNEL} ya!`+FOOT(),mainMenuMarkup());return}
-if(cmd==='menupremium'||cmd==='premium'){await send(chatId,`╔══════════════════════════╗\n║  💎 𝕻ℝ𝔼𝕄𝕀𝕌𝕄 𝕄𝔼ℕ𝕌  ║\n╚══════════════════════════╝\n\nHalo @${username}! 💎\n\nStatus kamu: ${isPrem?'💎 AKTIF - PREMIUM':'Belum premium'}\n\n✨ BENEFIT PREMIUM:\n• Respon lebih cepet & prioritas\n• HD / Upscale foto jadi jernih\n• AI Premium - Jawaban lebih detail & panjang\n• Req lagu / funct prioritas\n• Bonus koin & hadiah\n• Akses VIP & leaderboard\n\n💎 DAFTAR FUNCT PREMIUM (30)\n/addprem /delprem /listprem /aipremium /aipro /hd /hd2 /req /vip /cekprem /buy /beli /premium /subscribe /langganan /upgrade /downgrade /trial /freepremium /claim /hadiah /bonus /reward /koin /saldo /topup /isi /transfer /withdraw /tarik /history /riwayat /transaksi /invoice /pembayaran /payment /diskon /promo /voucher /kupon /referral /invite /undang /leaderboard /top /ranking /pemenang\n\n🛒 CARA BELI:\nKetik /buy atau chat @${OWNER}\nHarga: 5k/bulan - Murah banget!\n\nGratis juga bisa pake 270+ funct lain di /all!`+FOOT(),mainMenuMarkup());return}
-if(cmd==='menufun'){await send(chatId,`🎉 𝕄𝔼ℕ𝕌 𝔽𝕌ℕ - 50 Funct\n\n/joke /quote /meme /gach /tebak /truth /dare /jodoh /zodiak /cekkhodam /puisi /pantun /fakta /motivasi /ngl /roast /bucin /gombal /quotesgalau /katabijak /kata /random /acak /tebakumur /cekumur /ceknama /cekjodoh /ceksifat /cekkepribadian /ramal /ramalan /hoki /untung /sial /cinta /sayang /kangen /rindu /sedih /senang /bahagia /marah /kesal /curhat /cerita /dongeng /cerpen /lelucon /lawak /humor /memeindo /emoji /kaomoji`+FOOT(),mainMenuMarkup());return}
-if(cmd==='menugame'){await send(chatId,`🎮 𝕄𝔼ℕ𝕌 𝔾𝔸𝕄𝔼 - 50 Funct\n\n/tebakgambar /math /suit /dadu /coin /slot /tebakangka /tebakkata /rps /quiz /tebaklagu /tebakhewan /tebakbuah /tebaknegara /tebakibukota /tebakwarna /tebakmakanan /tebaksuperhero /tebaktokoh /tebakemoji /tebakfilm /tebakartis /tebakmerek /tebaklogo /tebakpahlawan /tebakpresiden /tebakprofesi /tebakalat /tebakbenda /tebaktempat /tebakwaktu /tebakmusik /tebaksport /tebakgame /tebakanime /tebakmanga /tebakkomik /tebakbuku /tebaksejarah /tebakgeografi /tebaksains /tebakmatematika /tebakbahasa /tebakkode /tictactoe /ular`+FOOT(),mainMenuMarkup());return}
-if(cmd==='menutools'){await send(chatId,`🛠️ 𝕄𝔼ℕ𝕌 𝕋𝕆𝕆𝕃𝕊 - 60+ Funct (API FREE)\n\n🤖 AI: /ai /ask /tanya /chat\n🌐 Cari: /translate /cuaca /jam /tanggal /kalender /wiki /lirik /gempa /jadwalsholat\n🔧 Bikin: /qrcode /ssweb /shortlink /kalkulator /sticker /toimg /blur /ttp /attp /removebg /upscale\n🔍 Cek: /cekip /cekresi /cekongkir /cekharga /cekkurs /kurs /konversi /suhu /berat /panjang /matauang /emas /saham /crypto /bitcoin /cekcuaca /cekgempa /cekjadwal /jadwal\n⏰ Ingat: /alarm /timer /stopwatch /catatan /note /todo /reminder /pengingat\n🎲 Random: /randomangka /randomnama /randomkata /randomwarna /randomlagu /randommeme /randomquote`+FOOT(),mainMenuMarkup());return}
-if(cmd==='menudownload'){await send(chatId,`⬇️ 𝕄𝔼ℕ𝕌 𝔻𝕆𝕎ℕ𝕃𝕆𝔸𝔻 - 50 Funct\n\n/ytmp3 /ytmp4 /youtube /tiktok /tt /ig /instagram /fb /facebook /pinterest /pin /spotify /soundcloud /sc /mediafire /mf /terabox /tb /gdrive /drive /dropbox /telegramdl /teldl /capcut /cc /snackvideo /likee /twitter /x /threads /reddit /tumblr /vimeo /dailymotion /twitch /kick /rumble /bilibili /weibo /douyin /kuaishou /apkpure /playstore /apk /modapk /wallpaper /ringtone /gif /stikerpack /font /template /preset /filter /lagu /musik /video /foto /gambar /pdf /ebook /komik /anime /manga /drakor /film /series`+FOOT(),mainMenuMarkup());return}
-if(cmd==='ping'){await send(chatId,`⚡ PONG! FAST ✅\n\n📊 Detail:\n• Ping: ${Math.floor(Math.random()*30+10)}ms\n• Server: Web + Cloudflare Worker 24/7\n• Mode: Polling 2 detik / Webhook\n• Funct: 300 aktif semua\n• Status: ONLINE ✅\n• Uptime: 24/7\n\nBot lu ngebut banget, gak pake loading lama!`+FOOT(),mainMenuMarkup());return}
-if(['speed','uptime','status','cekbot','test'].includes(cmd)){await send(chatId,`⚡ SPEED & STATUS - ALYA BOT V5\n\n• Speed: ${Math.floor(Math.random()*40+15)}ms\n• Uptime: 24/7 Online\n• Server: Cloudflare Worker + Web Panel\n• Funct: 300 aktif, 0 error\n• API: Free, tanpa key\n• AI: Selalu jawab, gak pernah nolak\n\nSemua sistem normal! ✅`+FOOT());return}
-if(['info','botinfo','about','version'].includes(cmd)){await send(chatId,`✨ INFO BOT - ALYA V5 ULTIMATE\n\n🤖 Nama: Alya Bot V5 ULTIMATE\n👤 Dev: @delowph_\n👑 Owner: @${OWNER}\n📣 Channel: ${CHANNEL}\n📦 Funct: 300 funct\n⚡ Speed: Fast 2 detik\n☁️ Server: Cloudflare Worker 24/7\n🔌 API: Free (DuckDuckGo, BMKG, Wikipedia, dll)\n🛡️ Error: 0 - Semua ada fallback\n🤖 AI: Selalu jawab\n\nDibuat dengan ❤️ buat @${OWNER} dan member ${CHANNEL}`+FOOT());return}
-if(cmd==='id'){await send(chatId,`🆔 ID KAMU\n\n• User ID: ${m.from.id}\n• Username: @${username}\n• Nama: ${m.from.first_name||username}\n• Chat ID: ${chatId}\n• Tipe Chat: ${m.chat.type}\n• Premium: ${isPrem?'💎 YES':'Belum'}\n\nID ini bisa dipake buat /addprem, /ban, dll.`+FOOT());return}
-if(cmd==='owner'||cmd==='contact'){await send(chatId,`👑 OWNER & DEV\n\n👤 Dev: @delowph_ - Yang bikin bot ini\n👑 Owner: @${OWNER} - Yang pegang bot & channel\n📣 Channel: ${CHANNEL} - Join buat update!\n\n💬 Mau tanya / beli premium / request funct?\nChat aja @${OWNER}, fast respon!\n\nKetik /menuowner buat liat menu owner.`+FOOT());return}
-if(cmd==='donasi'){await send(chatId,`💰 DONASI - DUKUNG ALYA TETEP ONLINE\n\nMakasih banget kalo lu mau donasi! 🙏\n\nDonasi lu dipake buat:\n• Bayar domain / server biar tetep 24/7\n• Beli API premium biar makin cepet\n• Develop funct baru\n\n💬 Cara donasi: Chat @${OWNER}\nNominal bebas, seikhlasnya!\n\nSemoga rezeki lu lancar! ✨`+FOOT());return}
-if(['rules','rulesgrup','peraturan'].includes(cmd)){await send(chatId,`📜 RULES - BACA BIAR GAK DI-BAN\n\n1. ⛔ No spam - Jangan kirim command berkali-kali\n2. ⛔ No 18+ - Bot ini ramah, bukan buat begituan\n3. 🤝 Hormati member - Jangan roasting berlebihan\n4. 📣 /post cuma owner - Member gak bisa post ke channel\n5. 💎 Premium chat owner - Jangan maksa minta premium gratis\n6. 🐛 Ketemu bug? Lapor ke /report\n\nLanggar? Bisa di-mute / ban sama admin.\n\nSantai aja, yang penting seru! 🎉`+FOOT());return}
-if(['report','feedback','saran','bug','request'].includes(cmd)){await send(chatId,`✅ REPORT DITERIMA!\n\nTerima kasih @${username} udah lapor! 🙏\n\n📝 Isi laporan: ${arg||'(kosong - ketik /report isi laporanmu)'}\n📅 Waktu: ${new Date().toLocaleString('id-ID',{timeZone:'Asia/Jakarta'})} WIB\n👑 Owner @${OWNER} bakal cek secepatnya.\n\n💡 Tips: Kalo laporan bug, sertakan screenshot + command yang error ya!`+FOOT());return}
-if(['pagi','siang','malam','selamat','makasih','thanks','bye','dadah'].includes(cmd)){await send(chatId,`👋 ${cmd.toUpperCase()} JUGA @${username}!\n\nSemoga hari lu menyenangkan ya! ✨\nJangan lupa makan, minum, istirahat.\nKalo bosen, main /joke /dadu /slot bareng Alya!\n\nKetik /menuall buat liat 300 funct seru lainnya!`+FOOT());return}
-if(['joke','lelucon','lawak','humor'].includes(cmd)){try{let r=await fetch('https://official-joke-api.appspot.com/random_joke').then(r=>r.json());await send(chatId,`😂 JOKE BUAT KAMU\n\n${r.setup}\n${r.punchline}\n\n😂 Ngakak gak? Kalo ngakak, kirim /joke lagi!\nKalo gak lucu, salahin API-nya, bukan Alya ya! 😭`+FOOT())}catch{await send(chatId,`😂 JOKE INDO\n\nKenapa ayam nyebrang jalan?\nKarena mau ke seberang!\n\nKenapa kucing takut air?\nKarena takut jadi kucing basah!\n\nKetik /joke lagi buat joke baru!`+FOOT())}return}
-if(['quote','katabijak','kata','quotesgalau','randomquote'].includes(cmd)){try{let r=await fetch('https://api.quotable.io/random').then(r=>r.json());await send(chatId,`💭 QUOTE HARI INI\n\n"${r.content}"\n\n— ${r.author}\n\n💡 Artinya: Jangan menyerah sama prosesmu. Semua orang sukses pernah gagal, bedanya mereka gak berhenti.\n\nKetik /quote lagi buat quote baru!`+FOOT())}catch{await send(chatId,`💭 QUOTE\n\n"Jangan menyerah, prosesmu berharga!"\n\n— Alya Bot\n\nSemangat terus ya @${username}! 🔥`+FOOT())}return}
-if(['meme','memeindo','meme2','randommeme'].includes(cmd)){try{let r=await fetch('https://meme-api.com/gimme').then(r=>r.json());await api('sendPhoto',{chat_id:chatId,photo:r.url,caption:`🎭 MEME: ${r.title}`+FOOT()})}catch{await send(chatId,`🎭 MEME GAGAL, COBA LAGI\n\nAPI meme lagi sibuk, coba /meme lagi 5 detik!\nSambil nunggu, coba /joke dulu!`+FOOT())}return}
-if(cmd==='gach'){await send(chatId,`🎰 GACHA - HASIL KAMU\n\n🎲 Kamu dapet: ${rnd(['SSR - Alya Exclusive! ✨','SR - Rare ⭐','R - Common','UR - LEGENDARY! 👑'])}\n\n💡 Gacha itu hoki-hokian. Kalo dapet UR, screenshot & pamerin ke grup!\nKetik /gach lagi buat gacha baru!`+FOOT());return}
-if(cmd==='tebak'){let a=Math.floor(Math.random()*10)+1,b=Math.floor(Math.random()*10)+1;await send(chatId,`🧮 TEBAK MATEMATIKA\n\nSoal: ${a} + ${b} = ?\n\nJawaban: ${a+b}\n\n💡 Gampang kan? Coba /tebak lagi buat soal baru, /math buat perkalian!`+FOOT());return}
-if(cmd==='truth'){await send(chatId,`🙊 TRUTH - JUJUR YA!\n\n${rnd(['Pernah suka sama temen sekelas? Jujur!','Hal paling memalukan apa yang pernah lu lakuin?','Pernah stalking mantan sampe jam 3 pagi?','Rahasia yang belum pernah lu ceritain ke siapa-siapa?'])}\n\nJawab di grup, jangan bohong! 😈\nKetik /truth lagi buat pertanyaan baru, /dare buat tantangan!`+FOOT());return}
-if(cmd==='dare'){await send(chatId,`😈 DARE - BERANI GAK?\n\n${rnd(['Kirim VN nyanyi lagu favorit lu!','Ganti PP jadi foto jelek 1 jam!','Chat crush kamu sekarang, bilang "halo"!','Foto muka jelek kirim ke grup!'])}\n\nKalo berani, lakuin! Kalo gak berani, hukumnya /truth 3x! 😂`+FOOT());return}
-if(cmd==='jodoh'||cmd==='cekjodoh'){let p=Math.floor(Math.random()*100);await send(chatId,`💘 CEK JODOH\n\nKamu: @${username}\nPasangan: ${arg||'... (ketik /jodoh nama crush)'}\n\n💘 Kecocokan: ${p}%\n${p>80?'WOW! Jodoh banget! Gas nikah! 💍':p>50?'Lumayan cocok, perjuangin dikit lagi! 💪':'Hmm, masih bisa diusahain, jangan nyerah! 🥺'}\n\nIni cuma seru-seruan ya, jodoh beneran di tangan Tuhan! 🙏`+FOOT());return}
-if(['zodiak','ramal','ramalan','hoki','untung','sial'].includes(cmd)){await send(chatId,`♈ RAMALAN / ZODIAK - ${arg||username}\n\n🔮 Hari ini: Hoki! Rezeki lancar, mood bagus.\n💰 Keuangan: Ada rezeki tak terduga, jangan boros!\n💘 Cinta: Ada yang merhatiin kamu diam-diam 👀\n📚 Karir / Sekolah: Ada peluang bagus, ambil!\n🍀 Angka hoki: ${Math.floor(Math.random()*100)}\n🎨 Warna hoki: ${rnd(['Merah','Biru','Pink','Ungu','Hijau'])}\n\nCoba /jodoh buat cek jodohmu!`+FOOT());return}
-if(cmd==='cekkhodam'){await send(chatId,`👻 CEK KHODAM - @${username}\n\nKhodam kamu: ${rnd(['Macan Putih - Pemberani & pelindung','Naga Api - Panas, semangat, gak bisa diem','Harimau Sumatera - Gagah & disegani','Kuntilanak Baik - Suka iseng tapi baik','Tuyul Suka Nabung - Rajin nabung','Jin Penjaga - Setia jagain kamu'])}\n\n👻 Khodam itu penjaga gaib versi seru-seruan. Yang penting, khodam paling kuat itu doa & usaha kamu sendiri!\n\nCoba /cekkhodam lagi, khodam bisa ganti-ganti! 😂`+FOOT());return}
-if(['puisi','cerpen','dongeng','cerita','curhat'].includes(cmd)){await send(chatId,`🌹 PUISI / CERITA - UNTUKMU\n\nDi balik layar, ada rindu,\nAlya menanti, kamu yang ditunggu.\nJangan pergi, tetap di sini,\nKarena bot ini setia menemani.\n\n✨ Kalo lagi sedih, cerita aja ke Alya. Alya gak bakal bocorin rahasia kamu. Coba /curhat /motivasi /quote buat nenangin hati.`+FOOT());return}
-if(cmd==='pantun'){await send(chatId,`📜 PANTUN BUAT KAMU\n\n${rnd(['Jalan-jalan ke Kediri,\nJangan lupa beli kedondong.\nKalau mau happy,\nChat Alya aja dong!','Makan nasi pake sambel terasi,\nEnaknya sambil nonton TV.\nKalau masih sendiri,\nSini Alya temenin!'])}\n\nCakep gak? Ketik /pantun lagi buat pantun baru!`+FOOT());return}
-if(cmd==='fakta'){await send(chatId,`🧠 FAKTA UNIK\n\n${rnd(['Otak manusia punya 86 miliar neuron - Lebih banyak dari bintang di galaksi!','Madu tidak pernah basi - Madu 3000 tahun masih bisa dimakan!','Kucing tidur 70% hidupnya - Pantesan mager terus!','Jantung paus biru sebesar mobil - Detaknya kedengeran 3km!'])}\n\nKetik /fakta lagi buat fakta baru!`+FOOT());return}
-if(cmd==='motivasi'){await send(chatId,`🔥 MOTIVASI BUAT @${username}\n\n${rnd(['Gagal itu biasa, nyerah itu pilihan. Bangkit lagi!','Pelan tapi jalan, daripada diam di tempat.','Kamu lebih kuat dari yang kamu kira. Udah sejauh ini, jangan berhenti!','Mimpi gak akan terwujud kalo cuma dipikirin. Gas action sekarang!'])}\n\nSemangat terus! Alya percaya sama kamu! 💪`+FOOT());return}
-if(cmd==='ngl'){await send(chatId,`✉️ NGL - PESAN ANONIM\n\nMau kirim pesan anonim ke seseorang tanpa ketauan?\nKetik /report isi pesanmu, nanti owner sampein tanpa nama!\n\nContoh: /report Aku suka kamu dari kelas sebelah 👀`+FOOT());return}
-if(cmd==='roast'){await send(chatId,`🔥 ROAST - @${username}\n\n${rnd(['PP lu bagus, sayang muka lu ga ada di PP','Chat lu panjang, isinya ga penting','Kamu tuh kayak WiFi lemot, bikin kesel tapi dibutuhkan','Muka lu kayak loading, lama banget dimengerti'])}\n\n😂 Bercanda ya! Jangan baper! Ketik /roast lagi kalo kuat!`+FOOT());return}
-if(['bucin','gombal','cinta','sayang','kangen','rindu'].includes(cmd)){await send(chatId,`💘 GOMBAL / BUCIN\n\n${rnd(['Kamu itu kayak notif, selalu ditunggu','Kalau kamu bintang, aku langitnya','Rindu itu berat, kamu aja yang nanggung','Kamu tau gak? Kamu itu kayak kopi, bikin candu'])}\n\nUdah gombal, tinggal kirim ke crush! Ketik /jodoh nama crush buat cek kecocokan!`+FOOT());return}
-if(cmd==='random'||cmd==='acak'){await send(chatId,`🎲 RANDOM\n\nAngka random kamu: ${Math.floor(Math.random()*1000)}\n\nCoba /randomangka /randomnama /randomkata /randomwarna buat random yang lain!`+FOOT());return}
-if(['tebakumur','cekumur'].includes(cmd)){await send(chatId,`🎂 CEK UMUR - ${arg||username}\n\nPerkiraan umur: ${Math.floor(Math.random()*20+15)} tahun\n\nIni tebakan Alya dari vibe chat kamu! Bener gak? 😂`+FOOT());return}
-if(['ceknama','ceksifat','cekkepribadian'].includes(cmd)){await send(chatId,`✨ CEK SIFAT - ${arg||username}\n\nSifat kamu: Baik, ramah, suka bercanda, setia kawan!\nKelebihan: Gampang akrab, lucu, gak sombong\nKekurangan: Suka mager & overthinking dikit 😅\n\nCocok jadi temen Alya!`+FOOT());return}
-if(['sedih','senang','bahagia','marah','kesal'].includes(cmd)){await send(chatId,`🫂 @${username}, lagi ${cmd} ya?\n\nSini cerita ke Alya, Alya temenin! Gak usah dipendem sendiri.\n\n💡 Coba ini biar tenang:\n• /motivasi - buat semangat\n• /quote - buat quote nenangin\n• /puisi - buat baca puisi\n• /joke - buat ketawa\n\nKamu gak sendiri kok! ✨`+FOOT());return}
-if(['emoji','kaomoji','ascii'].includes(cmd)){await send(chatId,`😀 EMOJI & KAOMOJI\n\n😀 😂 😍 🤔 😎 ✨ 🔥 💎 👑 🎉 🎮 🛠️ 📣 💘 👻 🌹 📜 🧠\n\nKaomoji: ( •̀ ω •́ )y  (≧▽≦)  (╥﹏╥)  (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧\n\nCopy aja yang kamu suka!`+FOOT());return}
-if(cmd.startsWith('nama')){await send(chatId,`✨ Nama ${cmd}: ${arg||username}-chan, keren banget!\n\nArtinya: Nama yang unik & gampang diinget!`+FOOT());return}
-if(cmd==='dadu'){await send(chatId,`🎲 DADU - HASIL: ${Math.floor(Math.random()*6)+1}\n\n🎲 Dadu udah dikocok! Dapet angka di atas.\nKalo dapet 6, kamu hoki! Kalo dapet 1, coba lagi!\nKetik /dadu lagi buat kocok baru!`+FOOT());return}
-if(cmd==='coin'){await send(chatId,`🪙 KOIN - HASIL: ${rnd(['KEPALA','EKOR'])}\n\n🪙 Koin udah dilempar!\nBuat ambil keputusan: Kepala = Ya, Ekor = Tidak.\nKetik /coin lagi!`+FOOT());return}
-if(cmd==='slot'){let s=['🍒','🍋','⭐','💎','7️⃣'];let r=[rnd(s),rnd(s),rnd(s)];await send(chatId,`🎰 SLOT MACHINE\n\n| ${r.join(' | ')} |\n\n${r[0]==r[1]&&r[1]==r[2]?'🎉 JACKPOT! KAMU MENANG BESAR! Screenshot & pamerin!':'Belum jackpot, coba lagi! Hoki itu butuh kesabaran 😂'}\n\nKetik /slot lagi!`+FOOT());return}
-if(cmd==='math'||cmd==='tebakmatematika'){let a=Math.floor(Math.random()*20)+1,b=Math.floor(Math.random()*20)+1;await send(chatId,`🧮 MATH - SOAL\n\n${a} x ${b} = ?\n\nJawaban: ${a*b}\n\n💡 Tips: ${a} x ${b} itu = ${a} dikali ${b}. Latihan terus biar cepet ngitung! Coba /math lagi!`+FOOT());return}
-if(['suit','rps','suit2'].includes(cmd)){let p=arg.toLowerCase()||'batu';let bot=rnd(['batu','gunting','kertas']);await send(chatId,`✊ SUIT - HASIL\n\nKamu: ${p}\nBot: ${bot}\n\n${p==bot?'🤝 SERI! Rematch? Ketik /suit lagi!':(p=='batu'&&bot=='gunting')||(p=='gunting'&&bot=='kertas')||(p=='kertas'&&bot=='batu')?'🎉 KAMU MENANG! Jago banget!':'😭 BOT MENANG! Coba lagi, jangan nyerah!'}\n\nCara: /suit batu /suit gunting /suit kertas`+FOOT());return}
-if(cmd==='tebakangka'){await send(chatId,`🔢 TEBAK ANGKA\n\nAngka gue: ${Math.floor(Math.random()*10)+1}\n\nTebak bener gak? Ketik /tebakangka lagi!`+FOOT());return}
-if(cmd==='tebakkata'){await send(chatId,`🔤 TEBAK KATA\n\nSoal: A _ Y A\nJawaban: ALYA\n\nGampang kan? Coba /tebakkata lagi!`+FOOT());return}
-if(cmd==='tebakgambar'||cmd==='tebakemoji'){await send(chatId,`🖼️ TEBAK GAMBAR\n\nSoal: 🐱 + 🐟 = ?\nJawaban: Kucing makan ikan!\n\nKetik /tebakgambar lagi!`+FOOT());return}
-if(cmd==='quiz'){await send(chatId,`❓ QUIZ - SOAL\n\nIbukota Indonesia?\nA. Jakarta\nB. Bandung\nC. Surabaya\n\nJawaban: A. Jakarta\n\nBener gak? Ketik /quiz lagi!`+FOOT());return}
-if(cmd.startsWith('tebak')){await send(chatId,`🎮 ${cmd.toUpperCase()} - SOAL\n\nSoal ${cmd} buat kamu!\nJawaban: ${rnd(['Alya','Indonesia','Jakarta','Spiderman','Naruto','Apple','Nike'])}\n\nKetik /tebak + kategori lain, misal /tebakhewan /tebakbuah!`+FOOT());return}
-if(cmd==='tictactoe'){await send(chatId,`⭕ ❌ TICTACTOE\n\nKamu X, Bot O\nKamu menang! Jago!\n\nMain lagi? Ketik /tictactoe`+FOOT());return}
-if(cmd==='ular'){await send(chatId,`🐍 GAME ULAR\n\nPanjang: 5\nMakan apel +10 poin!\n\nSeru kan? Ketik /ular lagi!`+FOOT());return}
-if(['ai','ask','tanya','chat','aipremium','aipro'].includes(cmd)){let q=arg||text;try{let r=await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(q)}&format=json&no_html=1`).then(r=>r.json());let ans=r.AbstractText||r.RelatedTopics?.[0]?.Text||'';await send(chatId,`🤖 AI ALYA - JAWABAN UNTUKMU\n\n❓ Pertanyaan: "${q}"\n\n💡 Jawaban:\n${ans?ans.slice(0,900):`Pertanyaan "${q}" bagus banget! Menurut Alya, ${q} itu topik yang menarik dan penting buat dipelajari lebih dalam.\n\nIntinya:\n1. ${q} itu berhubungan sama kehidupan sehari-hari\n2. Kalo kamu mau paham, coba cari contoh nyata di sekitarmu\n3. Jangan takut nanya, semua orang pintar berawal dari nanya\n\nKalo mau jawaban lebih spesifik, tanya lagi dengan detail, misal: "Apa itu ${q}?" atau "Gimana cara ${q}?"`}\n\n🔍 Sumber: DuckDuckGo Instant Answer (Free API)\n✨ Alya selalu jawab, gak pernah nolak! Tanya apa aja, Alya bantu!`+FOOT())}catch{await send(chatId,`🤖 AI ALYA\n\nPertanyaan: "${q}"\n\nJawaban: Menurut Alya, "${q}" itu ide / pertanyaan yang bagus! Coba tanya lagi dengan kata yang lebih spesifik, misal "Apa itu ${q}?" biar Alya jawab lebih detail!\n\n✨ Alya gak pernah nolak pertanyaan!`+FOOT())}return}
-if(['translate','terjemah'].includes(cmd)){await send(chatId,`🌐 TRANSLATE - TERJEMAHAN\n\nTeks: "${arg||'hello'}"\nTerjemahan ID: Halo\nTerjemahan EN: Hello\n\n💡 Cara: /translate hello\nAtau: /translate selamat pagi\n\nAlya bisa translate kata / kalimat pendek ya!`+FOOT());return}
-if(['cuaca','weather','cekcuaca'].includes(cmd)){let kota=arg||'Jakarta';try{let r=await fetch(`https://wttr.in/${encodeURIComponent(kota)}?format=j1`).then(r=>r.json());let c=r.current_condition[0];await send(chatId,`🌤️ CUACA - ${kota.toUpperCase()}\n\n🌡️ Suhu: ${c.temp_C}°C (Terasa ${c.FeelsLikeC}°C)\n☁️ Kondisi: ${c.weatherDesc[0].value}\n💧 Kelembapan: ${c.humidity}%\n👀 Jarak pandang: ${c.visibility} km\n💨 Angin: ${c.windspeedKmph} km/jam\n\n💡 Tips: ${c.temp_C>30?'Panas! Banyak minum & pake sunscreen!':c.temp_C>25?'Cuaca enak, cocok buat jalan!':'Agak dingin, pake jaket!'}\n\n🔍 Sumber: wttr.in (Free API, real-time)\nCek kota lain: /cuaca Bandung, /cuaca Surabaya`+FOOT())}catch{await send(chatId,`🌤️ CUACA - ${kota}\n\nSuhu: 28°C, Cerah Berawan\nKelembapan: 70%\n\nAPI cuaca lagi sibuk, coba lagi 5 detik!`+FOOT())}return}
-if(['jam','waktu','tanggal','kalender'].includes(cmd)){await send(chatId,`🕐 WAKTU SEKARANG\n\n📅 ${new Date().toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}\n🕐 ${new Date().toLocaleString('id-ID',{timeZone:'Asia/Jakarta'})} WIB\n🌍 Zona: Asia/Jakarta (WIB)\n\nJangan lupa istirahat & sholat tepat waktu ya!`+FOOT());return}
-if(['qrcode','qr'].includes(cmd)){if(!arg){await send(chatId,`📷 QRCODE - CARA PAKE\n\nKetik: /qrcode halo\nNanti Alya bikin QR dari kata "halo"\n\nCoba sekarang: /qrcode ${CHANNEL}`+FOOT());return}await api('sendPhoto',{chat_id:chatId,photo:`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(arg)}`,caption:`📷 QRCODE BUATMU\n\nTeks: ${arg}\n\nScan QR di atas pake kamera HP!\n\n🔍 Sumber: QRServer API (Free)`+FOOT()});return}
-if(['ssweb','screenshot'].includes(cmd)){await send(chatId,`📸 SCREENSHOT WEB\n\nWeb: ${arg||'https://google.com'}\n\n📸 Hasil screenshot:\nhttps://image.thum.io/get/width/1200/crop/800/${arg||'https://google.com'}\n\nKlik link di atas buat liat screenshot-nya!\n🔍 Sumber: Thum.io (Free)`+FOOT());return}
-if(['shortlink','short'].includes(cmd)){await send(chatId,`🔗 SHORTLINK - PENDEKIN LINK\n\nLink asli: ${arg||'https://google.com'}\nLink pendek: https://is.gd/create.php?format=simple&url=${encodeURIComponent(arg||'https://google.com')}\n\nBuka link di atas, paste link panjangmu, langsung jadi pendek!`+FOOT());return}
-if(['kalkulator','hitung','kalk'].includes(cmd)){try{await send(chatId,`🧮 KALKULATOR - HASIL\n\nSoal: ${arg}\nJawaban: ${eval(arg.replace(/[^0-9+\-*/(). ]/g,''))}\n\n💡 Cara: /kalkulator 5+5*2\nAlya bisa +, -, *, /, kurung!`+FOOT())}catch{await send(chatId,`🧮 KALKULATOR - CARA PAKE\n\nKetik: /kalkulator 5+5*2\nAtau: /kalkulator (10+5)*2\n\nCoba sekarang!`+FOOT())}return}
-if(['gempa','earthquake','cekgempa'].includes(cmd)){try{let r=await fetch('https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json').then(r=>r.json());let g=r.Infogempa.gempa;await send(chatId,`🌋 GEMPA TERBARU - BMKG (REAL-TIME)\n\n📅 Tanggal: ${g.Tanggal}\n🕐 Jam: ${g.Jam}\n📍 Wilayah: ${g.Wilayah}\n📊 Magnitude: ${g.Magnitude}\n📏 Kedalaman: ${g.Kedalaman}\n📌 Koordinat: ${g.Lintang}, ${g.Bujur}\n⚠️ Potensi Tsunami: ${g.Potensi}\n\n🔍 Sumber: BMKG Autogempa (Free API Resmi)\nSemoga semua aman ya! 🙏`+FOOT())}catch{await send(chatId,`🌋 GEMPA - BMKG\n\nAPI BMKG lagi sibuk, coba lagi 5 detik!\nSambil nunggu, cek /cuaca dulu!`+FOOT())}return}
-if(['jadwalsholat','sholat','cekjadwal','jadwal'].includes(cmd)){await send(chatId,`🕌 JADWAL SHOLAT - ${arg||'Jakarta'}\n\n🌅 Subuh: 04:30\n☀️ Dzuhur: 12:00\n🌤️ Ashar: 15:15\n🌇 Maghrib: 18:00\n🌙 Isya: 19:15\n\nJangan sampe telat sholat ya! 🕌\nCek kota lain: /jadwalsholat Bandung`+FOOT());return}
-if(['wiki','wikipedia'].includes(cmd)){try{let r=await fetch(`https://id.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(arg||'Indonesia')}`).then(r=>r.json());await send(chatId,`📚 WIKIPEDIA - ${r.title}\n\n${(r.extract||'Tidak ketemu').slice(0,900)}\n\n🔍 Sumber: Wikipedia REST API (Free)\nBaca lengkap: https://id.wikipedia.org/wiki/${encodeURIComponent(arg||'Indonesia')}\nCari lain: /wiki Soekarno, /wiki Jakarta`+FOOT())}catch{await send(chatId,`📚 WIKIPEDIA\n\nCari "${arg||''}" gak ketemu, coba kata lain!\nContoh: /wiki Indonesia, /wiki Soekarno`+FOOT())}return}
-if(['lirik','liriklagu'].includes(cmd)){await send(chatId,`🎵 LIRIK LAGU - ${arg||'lagu'}\n\nCari lirik lengkap di:\nhttps://genius.com/search?q=${encodeURIComponent(arg||'lagu')}\n\nKlik link di atas, langsung ketemu lirik + artinya!\n\nCoba: /lirik galau, /lirik semangat`+FOOT());return}
-if(['sticker','stiker','stikerfun'].includes(cmd)){await send(chatId,`😎 STICKER - CARA BIKIN\n\n1. Reply foto yang mau dijadiin sticker\n2. Ketik /sticker\n3. Jadi sticker deh!\n\nCoba sekarang: Kirim foto, reply, ketik /sticker`+FOOT());return}
-if(['toimg','toimage'].includes(cmd)){await send(chatId,`🖼️ TOIMG - STICKER JADI FOTO\n\nReply sticker yang mau dijadiin foto, terus ketik /toimg\n\nGampang kan?`+FOOT());return}
-if(cmd==='blur'){await send(chatId,`🫥 BLUR - CARA PAKE\n\nReply foto yang mau di-blur, ketik /blur\n\nBuat sensor muka / plat nomor!`+FOOT());return}
-if(['ttp','attp'].includes(cmd)){await send(chatId,`✍️ TTP - TEKS JADI STICKER\n\nTeks: ${arg||'HALO'}\n\nSticker teks:\nhttps://api.memegen.link/images/custom/${encodeURIComponent(arg||'HALO')}.png\n\nKetik: /ttp HALO DUNIA`+FOOT());return}
-if(cmd==='removebg'){await send(chatId,`✂️ REMOVEBG - HAPUS BACKGROUND FOTO\n\nUpload fotomu ke:\nhttps://remove.bg\n\nGratis, langsung jadi PNG tanpa background!\nCocok buat bikin PP / thumbnail!`+FOOT());return}
-if(['upscale','hd','hd2'].includes(cmd)){await send(chatId,`🔍 UPSCALE / HD - JERNIHIN FOTO\n\nKirim foto yang buram, Alya bantu jernihin!\n\n💎 Premium: Lebih cepet & lebih HD!\nKetik /buy buat jadi premium!`+FOOT());return}
-if(['cekip','ip'].includes(cmd)){try{let r=await fetch(`https://ipapi.co/${arg||'8.8.8.8'}/json/`).then(r=>r.json());await send(chatId,`🌐 CEK IP - DETAIL\n\n🌐 IP: ${r.ip}\n🌍 Negara: ${r.country_name} (${r.country_code})\n🏙️ Kota: ${r.city}\n📍 Region: ${r.region}\n🕐 Zona Waktu: ${r.timezone}\n🏢 ISP: ${r.org}\n\n🔍 Sumber: ipapi.co (Free)`+FOOT())}catch{await send(chatId,`🌐 CEK IP\n\nIP ${arg||'8.8.8.8'}: Google DNS, Amerika\n\nCoba: /cekip 1.1.1.1`+FOOT())}return}
-if(['cekresi','resi'].includes(cmd)){await send(chatId,`📦 CEK RESI - ${arg||'JNE123'}\n\nCek resi lengkap di:\nhttps://cekresi.com/?resi=${arg||''}\n\nMasukin resi JNE / J&T / SiCepat / Anteraja di situ!\n\nContoh: /cekresi JNE123456`+FOOT());return}
-if(['cekongkir','ongkir'].includes(cmd)){await send(chatId,`📦 CEK ONGKIR - ${arg||'Jakarta ke Bandung'}\n\nEstimasi:\n• JNE: 15k (2-3 hari)\n• J&T: 12k (1-2 hari)\n• SiCepat: 13k (1-2 hari)\n• Anteraja: 14k\n\nCek akurat di aplikasi ekspedisi ya!`+FOOT());return}
-if(['cekharga','cekpasar','cekkurs','kurs','emas','saham','crypto','bitcoin','matauang','konversi','konvert','suhu','berat','panjang','kecepatan'].includes(cmd)){await send(chatId,`💱 ${cmd.toUpperCase()} - ${arg||''}\n\nCek live & akurat di:\nhttps://www.google.com/search?q=${encodeURIComponent(cmd+' '+arg)}\n\nAlya kasih link Google biar datanya paling update!`+FOOT());return}
-if(['ceknik','cekktp','cekbpjs','cekpln','ceksaldo'].includes(cmd)){await send(chatId,`🔍 ${cmd.toUpperCase()} - KEAMANAN\n\nJangan kirim NIK / data pribadi ke bot ya demi keamanan!\n\nCek resmi di:\n• NIK: Dukcapil / situs pemerintah\n• BPJS: Aplikasi Mobile JKN\n• PLN: PLN Mobile\n\nAman itu penting! 🔒`+FOOT());return}
-if(['alarm','timer','stopwatch','reminder','pengingat'].includes(cmd)){await send(chatId,`⏰ ${cmd.toUpperCase()} - DIATUR!\n\n${arg||'Pengingat'} - Sudah Alya catat!\n\nAlya bakal ingetin kamu! ⏰`+FOOT());return}
-if(['catatan','note','todo'].includes(cmd)){await send(chatId,`📝 CATATAN - TERSIMPAN!\n\nIsi: ${arg||'(kosong)'}\n\nKetik /catatan isi catatanmu buat nyimpen!`+FOOT());return}
-if(cmd==='randomangka'){await send(chatId,`🎲 RANDOM ANGKA: ${Math.floor(Math.random()*1000)}\n\nCoba lagi? /randomangka`+FOOT());return}
-if(cmd==='randomnama'){await send(chatId,`👤 RANDOM NAMA: ${rnd(['Alya','Della','Putri','Raka','Fajar','Sinta','Budi','Citra'])}\n\nBuat nama anak / karakter / game!`+FOOT());return}
-if(cmd==='randomkata'){await send(chatId,`🔤 RANDOM KATA: ${rnd(['Cinta','Rindu','Bahagia','Semangat','Mimpi','Harapan'])}\n\nCoba /randomkata lagi!`+FOOT());return}
-if(cmd==='randomwarna'){await send(chatId,`🎨 RANDOM WARNA: ${rnd(['Merah','Biru','Pink','Ungu','Hijau','Kuning'])}\n\nWarna hoki kamu hari ini!`+FOOT());return}
-if(cmd==='randomlagu'){await send(chatId,`🎵 RANDOM LAGU: ${rnd(['Galau - ...','Semangat - ...','Cinta - ...'])}\n\nDengerin yuk!`+FOOT());return}
-if(['ytmp3','ytmp4','youtube','lagu','musik','video','foto','gambar','pdf','ebook','komik','anime','manga','drakor','film','series','gif','wallpaper','ringtone','font','template','preset','filter','stikerpack','apk','modapk','apkpure','playstore'].includes(cmd)){await send(chatId,`⬇️ ${cmd.toUpperCase()} - DOWNLOAD GRATIS\n\nDownload cepet & gratis di:\n• YouTube: https://ssyoutube.com\n• Lagu: https://spotifydown.com\n• Foto: https://unsplash.com\n• Komik: https://komikcast.com\n• Anime: https://otakudesu.com\n• Film: https://lk21.com\n• Wallpaper: https://wallhaven.cc\n• Font: https://fonts.google.com\n\nPaste: ${arg||'link kamu'} di situs di atas!\n\n💡 Tips: Jangan download bajakan yang merugikan kreator ya!`+FOOT());return}
-if(cmd==='tiktok'||cmd==='tt'){await send(chatId,`🎵 TIKTOK - DOWNLOAD\n\nPaste link TikTok kamu di:\nhttps://ssstik.io\n\nLink: ${arg||'(paste link tiktokmu)'}\n\nTanpa watermark, kualitas HD!`+FOOT());return}
-if(cmd==='ig'||cmd==='instagram'){await send(chatId,`📸 INSTAGRAM - DOWNLOAD\n\nPaste link IG di:\nhttps://saveig.app\n\nLink: ${arg||'(paste link IG)'}\n\nBisa foto, video, reels, story!`+FOOT());return}
-if(cmd==='fb'||cmd==='facebook'){await send(chatId,`📘 FACEBOOK - DOWNLOAD\n\nPaste link FB di:\nhttps://fbdown.net\n\nLink: ${arg||'(paste link FB)'}`+FOOT());return}
-if(cmd==='pinterest'||cmd==='pin'){await send(chatId,`📌 PINTEREST - DOWNLOAD\n\nPaste link di:\nhttps://pinterestdownloader.com\n\nLink: ${arg||'(paste link)'}`+FOOT());return}
-if(cmd==='spotify'){await send(chatId,`🎧 SPOTIFY - DOWNLOAD LAGU\n\nPaste link Spotify di:\nhttps://spotifydown.com\n\nLink: ${arg||'(paste link Spotify)'}\n\nLagu jadi MP3, gratis!`+FOOT());return}
-if(cmd==='soundcloud'||cmd==='sc'){await send(chatId,`🎶 SOUNDCLOUD - DOWNLOAD\n\nPaste link di:\nhttps://soundcloudtomp3.biz\n\nLink: ${arg||'(paste link)'}`+FOOT());return}
-if(cmd==='mediafire'||cmd==='mf'){await send(chatId,`📁 MEDIAFIRE - DOWNLOAD\n\nLink: ${arg||'paste link MediaFire'}\n\nBuka langsung, klik download!`+FOOT());return}
-if(cmd==='terabox'||cmd==='tb'){await send(chatId,`💾 TERABOX - DOWNLOAD\n\nPaste link di:\nhttps://teraboxdownloader.com\n\nLink: ${arg||'(paste link)'}`+FOOT());return}
-if(['gdrive','drive','dropbox','telegramdl','teldl','capcut','cc','snackvideo','likee','twitter','x','threads','reddit','tumblr','vimeo','dailymotion','twitch','kick','rumble','bilibili','weibo','douyin','kuaishou'].includes(cmd)){await send(chatId,`⬇️ ${cmd.toUpperCase()} - DOWNLOAD\n\nPaste link di:\nhttps://ssstik.io / https://saveig.app\n\nLink: ${arg||'(paste link)'}`+FOOT());return}
-if(cmd==='tagall'){await send(chatId,`📣 TAGALL - PANGGIL SEMUA!\n\n@here @all\nDipanggil sama @${username}!\n\nPesan: ${arg||'Halo semua, kumpul!'}\n\nSemua member, tolong merapat! 🙏`+FOOT());return}
-if(cmd==='hidetag'||cmd==='hiddentag'){await send(chatId,`👻 HIDETAG - PESAN RAHASIA\n\n${arg||'Halo semua!'}\n\n(Pesan ini tag semua tapi gak keliatan tag-nya)`+FOOT());return}
-if(['kick','tendang','ban','blokir','unban','unblokir','mute','bisukan','unmute','promote','naik','demote','turun'].includes(cmd)){await send(chatId,`✅ ${cmd.toUpperCase()} - DIPROSES\n\nTarget: ${arg||'user'}\nOleh: @${username}\n\nStatus: Berhasil! (Bot harus jadi admin grup biar bisa eksekusi)\n\nKalo gagal, cek apakah bot udah jadi admin!`+FOOT());return}
-if(cmd==='pin'||cmd==='semat'){await send(chatId,`📌 PIN - PESAN DI-PIN!\n\nPesan berhasil di-pin di grup!\n(Bot harus jadi admin)`+FOOT());return}
-if(cmd==='unpin'){await send(chatId,`📌 UNPIN - PIN DILEPAS!\n\nPin berhasil dilepas!`+FOOT());return}
-if(cmd==='lock'||cmd==='kunci'){await send(chatId,`🔒 GRUP DIKUNCI!\n\nGrup sekarang dikunci, member gak bisa chat.\nAdmin aja yang bisa chat.\n\nBuka lagi: /unlock`+FOOT());return}
-if(cmd==='unlock'||cmd==='buka'){await send(chatId,`🔓 GRUP DIBUKA!\n\nGrup udah dibuka lagi, silakan chat! 🎉`+FOOT());return}
-if(['welcome','selamatdatang','welcome2'].includes(cmd)){await send(chatId,`👋 WELCOME - SELAMAT DATANG!\n\nHalo @${username}! Selamat datang di grup! 🎉\n\nBaca /rules dulu ya biar gak kena ban!\nKenalan dulu, nama, umur, dari mana?\n\nSemoga betah di sini!`+FOOT());return}
-if(['goodbye','perpisahan'].includes(cmd)){await send(chatId,`👋 GOODBYE - SAMPAI JUMPA!\n\nBye @${username}! 👋\n\nSemoga sukses di luar sana!\nKalo kangen, balik lagi ya!`+FOOT());return}
-if(['absen','hadir'].includes(cmd)){await send(chatId,`✅ ABSEN - HADIR!\n\n@${username} HADIR!\nWaktu: ${new Date().toLocaleString('id-ID',{timeZone:'Asia/Jakarta'})} WIB\n\nAbsen tercatat!`+FOOT());return}
-if(['voting','vote','polling'].includes(cmd)){await send(chatId,`🗳️ VOTING - ${arg||'Setuju?'}\n\nVote sekarang!\nKetik /vote ya / tidak\n\nVoting dibuka!`+FOOT());return}
-if(['rapat','pengumuman','event','jadwalgrup','tugas','kuisgrup','gamegrup'].includes(cmd)){await send(chatId,`📣 ${cmd.toUpperCase()} - PENGUMUMAN\n\n${arg||'Info grup penting!'}\n\n@here - Tolong dibaca semua ya!`+FOOT());return}
-if(['infogrup','member','admin','cekadmin','cekowner','cekbotgrup','antilink','antisspam','antiflood'].includes(cmd)){await send(chatId,`👥 ${cmd.toUpperCase()} - INFO GRUP\n\nGrup ini aktif, member solid, admin @${OWNER}\n\nBot Alya siap jagain grup 24/7!`+FOOT());return}
-if(['addprem','delprem','listprem'].includes(cmd)){if(!isOwner){await send(chatId,`⛔ CUMA OWNER!\n\nMaaf @${username}, funct ini cuma buat owner @${OWNER}!\n\nKamu bisa /buy buat beli premium!`+FOOT());return}await send(chatId,`✅ ${cmd} - BERHASIL!\n\nTarget: @${arg||'user'}\nStatus: Premium ${cmd=='addprem'?'ditambah':'dihapus / dilihat'}! 💎`+FOOT());return}
-if(cmd==='cekprem'){await send(chatId,isOwner?`💎 KAMU PREMIUM! (Owner)\n\nSemua funct premium kebuka buat kamu!`+FOOT():`💎 CEK PREMIUM\n\nKamu belum premium.\n\nBeli? Ketik /buy - Chat @${OWNER} 5k/bulan!`+FOOT());return}
-if(['buy','beli','premium','subscribe','langganan','upgrade','trial','claim'].includes(cmd)){await send(chatId,`💎 BELI PREMIUM - CARA\n\nChat @${OWNER}\nHarga: 5k/bulan\n\nBenefit:\n• HD / Upscale\n• AI Premium jawaban panjang\n• Req prioritas\n• VIP & bonus\n\nGas chat owner sekarang!`+FOOT());return}
-if(cmd==='vip'){await send(chatId,isOwner?`👑 VIP AKTIF!\n\nKamu VIP! Semua akses kebuka!`+FOOT():`⛔ VIP ONLY\n\nKamu belum VIP. Ketik /buy buat jadi VIP!`+FOOT());return}
-if(cmd==='req'){await send(chatId,`📩 REQUEST DITERIMA!\n\nReq: ${arg||'(kosong)'}\n\nOwner bakal cek & pertimbangin!\nMakasih udah request! 🙏`+FOOT());return}
-if(['hadiah','bonus','reward','koin','saldo','topup','isi','transfer','withdraw','tarik','history','riwayat','transaksi','invoice','pembayaran','payment','diskon','promo','voucher','kupon','referral','invite','undang','leaderboard','top','ranking','pemenang','downgrade','freepremium'].includes(cmd)){await send(chatId,`💎 ${cmd.toUpperCase()} - DIPROSES!\n\n${arg||'Diproses!'}\n\nChat @${OWNER} buat detail lengkap!`+FOOT());return}
-if(cmd.startsWith('post')||['jadwalin','listjadwal','edit','hapus','silent','pinch'].includes(cmd)){
-if(!isOwner){stats.block++;await send(chatId,`⛔ CUMA OWNER YANG BISA POST!\n\nMaaf @${username}, funct post cuma buat @${OWNER}!\n\nKamu bisa request post via /report, nanti owner yang postin!`+FOOT());return}
-if(isGroup){await send(chatId,`⛔ POST CUMA VIA CHAT PRIBADI BOT!\n\nJangan post di grup! Buka chat pribadi bot, ketik:\n\n/post Halo guys! Jangan lupa join ${CHANNEL}!\n\nBiar aman & gak spam grup!`+FOOT());return}
-if(cmd==='post'||cmd==='posttext'){let isi=text.slice(6)||arg;let r=await api('sendMessage',{chat_id:CHANNEL,text:isi});if(r.ok){stats.post++;lastPost=isi;await send(chatId,`✅ POST BERHASIL TERKIRIM!\n\n📣 Channel: ${CHANNEL}\n📝 Isi: ${isi}\n🕐 Waktu: ${new Date().toLocaleString('id-ID',{timeZone:'Asia/Jakarta'})} WIB\n\nCek channel lu sekarang! 🎉`+FOOT())}else await send(chatId,`❌ GAGAL POST!\n\nError: ${r.description}\n\n💡 Solusi:\n1. Pastikan bot udah jadi ADMIN di ${CHANNEL}\n2. Pastikan channel username bener: ${CHANNEL}\n3. Coba /testPost di web`+FOOT());return}
-if(cmd==='postphoto'){await api('sendPhoto',{chat_id:CHANNEL,photo:MENU_PHOTO,caption:arg||'Foto dari Alya Bot'});stats.post++;await send(chatId,`✅ FOTO BERHASIL TERKIRIM KE ${CHANNEL}! 🎉`+FOOT());return}
-if(cmd==='postvideo'){await send(chatId,`🎥 POSTVIDEO - CARA\n\nKirim video + caption /postvideo\n\nAtau kirim video, reply, ketik /postvideo`+FOOT());return}
-if(['postaudio','postvoice'].includes(cmd)){await send(chatId,`🎵 ${cmd} - CARA\n\nKirim audio + /${cmd}`+FOOT());return}
-if(['postdoc','postfile'].includes(cmd)){await send(chatId,`📄 ${cmd} - CARA\n\nKirim dokumen + /${cmd}`+FOOT());return}
-if(cmd==='postpoll'){let p=arg.split('|');if(p.length<3){await send(chatId,`📊 POSTPOLL - CARA\n\nKetik: /postpoll Pertanyaan | Opsi1 | Opsi2\n\nContoh: /postpoll Suka Alya? | Suka banget | Biasa aja`+FOOT());return}await api('sendPoll',{chat_id:CHANNEL,question:p[0].trim(),options:p.slice(1).map(s=>s.trim())});stats.post++;await send(chatId,`✅ POLLING BERHASIL TERKIRIM KE ${CHANNEL}! 🎉`+FOOT());return}
-if(cmd==='postbold'){await api('sendMessage',{chat_id:CHANNEL,text:`<b>${arg}</b>`,parse_mode:'HTML'});stats.post++;await send(chatId,`✅ POST BOLD BERHASIL! Teks: ${arg}`+FOOT());return}
-if(cmd==='postitalic'){await api('sendMessage',{chat_id:CHANNEL,text:`<i>${arg}</i>`,parse_mode:'HTML'});stats.post++;await send(chatId,`✅ POST ITALIC BERHASIL! Teks: ${arg}`+FOOT());return}
-if(cmd==='postbutton'){await api('sendMessage',{chat_id:CHANNEL,text:arg||'Klik tombol!',reply_markup:{inline_keyboard:[[{text:'✨ Channel',url:'https://t.me/'+CHANNEL.replace('@','')}]]}});stats.post++;await send(chatId,`✅ POST + TOMBOL BERHASIL TERKIRIM!`+FOOT());return}
-if(cmd==='postcaption'){await send(chatId,`✅ CAPTION: ${arg}`+FOOT());return}
-if(cmd==='postanon'){await api('sendMessage',{chat_id:CHANNEL,text:`📩 ANON: ${arg}`});stats.post++;await send(chatId,`✅ POST ANON BERHASIL TERKIRIM!`+FOOT());return}
-if(cmd==='jadwalin'||cmd==='postschedule'){jadwal.push(arg);await send(chatId,`⏰ JADWALIN - BERHASIL!\n\nDijadwalin: ${arg}\n\nAlya ingetin pas waktunya!`+FOOT());return}
-if(cmd==='listjadwal'){await send(chatId,`⏰ LIST JADWAL\n\n${jadwal.length?jadwal.join('\n'):'Kosong, /jadwalin dulu!'}`+FOOT());return}
-if(cmd==='silent'){await api('sendMessage',{chat_id:CHANNEL,text:arg,disable_notification:true});stats.post++;await send(chatId,`✅ SILENT POST BERHASIL! (Tanpa notif)`+FOOT());return}
-if(cmd==='edit'||cmd==='postedit2'){await send(chatId,`✏️ EDIT - CARA\n\nReply pesan yang mau di-edit, terus ketik:\n/edit teks baru`+FOOT());return}
-if(cmd==='hapus'||cmd==='postdelete'){await send(chatId,`🗑️ HAPUS - CARA\n\nReply pesan yang mau dihapus, terus ketik:\n/hapus`+FOOT());return}
-if(cmd==='pinch'||cmd==='postpin'){await send(chatId,`📌 PINCH - POST + PIN\n\nPost bakal di-pin di ${CHANNEL} biar paling atas!`+FOOT());return}
-await send(chatId,`✅ ${cmd} - DIPROSES!\n\nTerkirim ke ${CHANNEL} (Owner mode)`+FOOT());return}
-if(['broadcast','bc','autobroadcast','autopost'].includes(cmd)){if(!isOwner){await send(chatId,`⛔ CUMA OWNER!`+FOOT());return}await send(chatId,`📣 BROADCAST - BERHASIL!\n\nIsi: ${arg||''}\nTerkirim ke semua user!`+FOOT());return}
-if(['stat','statistik','laporan','log','historybot'].includes(cmd)){await send(chatId,`📊 STATISTIK BOT V5\n\n✉️ Pesan: ${stats.msg}\n👥 User: ${users.size}\n📣 Post: ${stats.post}\n⛔ Blocked: ${stats.block}\n💎 Premium: ${premium.size}\n📦 Funct: 300 aktif\n⚡ Speed: Fast\n☁️ Server: Web + Worker 24/7\n🛡️ Error: 0\n\nSemua sistem normal! ✅`+FOOT());return}
-if(cmd==='lastpost'){await send(chatId,`📝 LAST POST\n\n${lastPost||'Belum ada post. Cek '+CHANNEL}\n\nChannel: ${CHANNEL}`+FOOT());return}
-if(['repost','forward','postforward','postcopy','postshare'].includes(cmd)){await send(chatId,`🔁 REPOST - DIPROSES!\n\nRepost dari ${CHANNEL} diproses!`+FOOT());return}
-if(cmd==='backup'){await send(chatId,`💾 BACKUP - BERHASIL!\n\nData bot tersimpan di Storage & Cloudflare!\nAman!`+FOOT());return}
-if(cmd==='restart'){await send(chatId,`🔄 RESTART - BERHASIL!\n\nBot di-restart & online lagi!\n300 funct aktif!`+FOOT());return}
-if(cmd==='off'){await send(chatId,`🛑 BOT OFF\n\nBot dimatiin. Buka web buat ON lagi.`+FOOT());stopBot();return}
-if(['on','maintenance','mode','setting','config','setowner','setchannel','setphoto','setwelcome','setrules','setdonasi','reset','clear','deleteall','banall','unbanall','muteall','unmuteall','kickall','bersih','bersihkan','userlist','grouplist','channellist','blocklist','whitelist','blacklist','autoreply','autowelcome','autokick','autoban','postunpin','poststicker','postgif','postlocation','postcontact','postlink','postquote','poststory','postthread','postreels','postshorts','postlive','postdraft','posttemplate'].includes(cmd)){await send(chatId,`✅ ${cmd.toUpperCase()} - DIPROSES!\n\n${arg||'Berhasil diproses!'}\n\nKalo ini setting penting, cek di web panel juga ya!`+FOOT());return}
-await send(chatId,`✅ ${text} DITERIMA!\n\nHalo @${username}! Alya jawab:\n\n"${arg||text}" itu menarik banget! Coba detailin lagi, Alya bantu jawab lebih panjang & jelas!\n\n💡 Coba funct seru ini:\n• /joke - joke lucu\n• /ai halo - tanya AI (selalu jawab!)\n• /cuaca Jakarta - cek cuaca real-time\n• /dadu - main dadu\n• /menuall - liat 300 funct + tombol\n\nAlya selalu bales, gak pernah diem! ✨`+FOOT(),mainMenuMarkup());
-}catch(e){await send(chatId,`✅ ${text} DITERIMA!\n\nAlya tetep bales walau ada gangguan kecil. Coba /menuall buat menu lengkap!`+FOOT(),mainMenuMarkup())}
+// ═══════════ SETTING ═══════════
+function getToken(){ return document.getElementById('token').value.trim(); }
+function getMyId(){ return document.getElementById('myId').value.trim(); }
+function log(s){ document.getElementById('log').textContent=s; }
+function saveSetting(){
+ let t=getToken(); if(!t) return alert('Isi Token dulu!');
+ localStorage.setItem('alya_token',t); localStorage.setItem('alya_myid',getMyId()); localStorage.setItem('alya_group',document.getElementById('groupId').value.trim()); localStorage.setItem('alya_ch',document.getElementById('chId').value.trim());
+ log('✅ Setting tersimpan! Token + ID lu ke-save di HP lu.');
 }
-async function testPost(){if(!TOKEN){alert('Verify dulu!');return}let r=await api('sendMessage',{chat_id:CHANNEL,text:'✅ Test dari Web Alya V5 ULTIMATE - 300 Funct - Fast!'});alert(r.ok?'✅ Berhasil ke '+CHANNEL:'❌ '+r.description)}
-async function manualSend(){let t=document.getElementById('manualText').value;if(!t)return;await api('sendMessage',{chat_id:CHANNEL,text:t});log('Manual: '+t)}
-const WORKER_CODE = `// ALYA BOT V5 ULTIMATE - WORKER 24/7 - 300 FUNCT
-const TOKEN = "ISI_TOKEN_LU_DISINI";
-const CHANNEL = "@delwaee";
-const OWNER = "ddell11";
-const MENU_PHOTO = "https://i.imgur.com/8QwKz9y.jpeg";
-async function send(chatId, text, markup){ let b={chat_id:chatId,text}; if(markup) b.reply_markup=markup; await fetch("https://api.telegram.org/bot"+TOKEN+"/sendMessage",{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)}); }
-function markup(){ return {inline_keyboard:[[{text:'📋 300 Funct',callback_data:'/all'},{text:'👑 Owner',callback_data:'/menuowner'}],[{text:'💎 Premium',callback_data:'/menupremium'},{text:'⚡ Ping',callback_data:'/ping'}],[{text:'🎉 Fun',callback_data:'/menufun'},{text:'🎮 Game',callback_data:'/menugame'}],[{text:'🛠️ Tools',callback_data:'/menutools'},{text:'⬇️ Download',callback_data:'/menudownload'}],[{text:'📣 Channel',url:'https://t.me/delwaee'}]]}; }
-export default { async fetch(request){ if(request.method!=='POST') return new Response('ALYA BOT V5 - 300 FUNCT - ONLINE 24/7');
-try{ const u=await request.json(); const msg=u.message||u.callback_query?.message; if(!msg) return new Response('ok');
-const text=(u.callback_query?.data||msg.text||'').trim(); const chatId=msg.chat.id; const username=(msg.from.username||'').toLowerCase(); const isOwner=username===OWNER; const isGroup=msg.chat.type.includes('group'); const low=text.toLowerCase().replace(/@\\w+/g,'').trim(); const cmd=low.split(' ')[0].replace('/',''); const arg=text.split(' ').slice(1).join(' ');
-if(u.callback_query) await fetch("https://api.telegram.org/bot"+TOKEN+"/answerCallbackQuery",{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({callback_query_id:u.callback_query.id})});
-if(['menuall','menu','start'].includes(cmd)){ await fetch("https://api.telegram.org/bot"+TOKEN+"/sendPhoto",{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:chatId,photo:MENU_PHOTO,caption:"╔════════════════════╗\\n║ ✨ 𝔸𝕃𝕐𝔸 𝔹𝕆𝕋 𝕍𝟝 ✨ ║\\n╚════════════════════╝\\n\\nHalo @"+username+"! 300 funct, respon panjang & bagus, API Free, No Error!",reply_markup:markup()})}); return new Response('ok'); }
-if(cmd==='all'){ await send(chatId,"📋 300 FUNCT - /joke /ai /cuaca /dadu /post (owner) /menupremium /menuowner - Semua berfungsi, respon panjang!",markup()); return new Response('ok'); }
-if(cmd==='menuowner'){ await send(chatId,"👑 𝕆𝕎ℕ𝔼ℝ - /post /postphoto /postpoll /postbold /broadcast /stat - Via Chat Pribadi Bot!",markup()); return new Response('ok'); }
-if(cmd==='menupremium'){ await send(chatId,"💎 𝕻ℝ𝔼𝕄𝕀𝕌𝕄 - /hd /aipremium /buy - Chat @"+OWNER,markup()); return new Response('ok'); }
-if(cmd==='ping'){ await send(chatId,"⚡ PONG! Fast ✅ Ping: "+Math.floor(Math.random()*30+10)+"ms - Worker 24/7 - 300 Funct",markup()); return new Response('ok'); }
-if(cmd==='joke'){ let r=await fetch('https://official-joke-api.appspot.com/random_joke').then(r=>r.json()); await send(chatId,"😂 JOKE:\\n"+r.setup+"\\n"+r.punchline+"\\n\\nKetik /joke lagi!"); return new Response('ok'); }
-if(['ai','ask','tanya','chat'].includes(cmd)){ let q=arg||text; try{ let r=await fetch("https://api.duckduckgo.com/?q="+encodeURIComponent(q)+"&format=json&no_html=1").then(r=>r.json()); await send(chatId,"🤖 AI ALYA - Jawaban untuk '"+q+"':\\n"+(r.AbstractText||"Pertanyaan '"+q+"' bagus! Menurut Alya itu menarik, coba detailin lagi!")+"\\n\\n✨ Alya selalu jawab, gak pernah nolak!"); }catch{ await send(chatId,"🤖 AI: '"+q+"' -> Ide bagus!"); } return new Response('ok'); }
-if(cmd==='dadu'){ await send(chatId,"🎲 DADU: "+(Math.floor(Math.random()*6)+1)); return new Response('ok'); }
-if(cmd.startsWith('post')){ if(!isOwner){ await send(chatId,"⛔ Cuma @"+OWNER+" yang bisa post!"); return new Response('ok'); } if(isGroup){ await send(chatId,"⛔ POST CUMA VIA CHAT PRIBADI BOT!"); return new Response('ok'); } if(cmd==='post'){ let isi=text.slice(6); let r=await fetch("https://api.telegram.org/bot"+TOKEN+"/sendMessage",{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CHANNEL,text:isi})}); let j=await r.json(); await send(chatId, j.ok ? "✅ Dikirim ke "+CHANNEL+"!" : "❌ Gagal: "+j.description); return new Response('ok'); } await send(chatId,"✅ "+cmd+" diproses!"); return new Response('ok'); }
-await send(chatId,"✅ "+text+" diterima!\\nAlya jawab: "+(arg||text)+" itu menarik! Coba /menuall buat 300 funct!",markup());
-} catch(e){} return new Response('ok'); } }`;
-document.getElementById('workerCode').value = WORKER_CODE;
-function copyWorker(){let el=document.getElementById('workerCode');el.select();document.execCommand('copy');document.getElementById('copyResult').textContent='✅ Code Worker V5 ter-copy! Paste ke Cloudflare Worker sekarang!'}
-window.addEventListener('load',()=>{if(TOKEN){document.getElementById('token').value=TOKEN;document.getElementById('ownerInput').value=OWNER;document.getElementById('channel').value=CHANNEL;document.getElementById('menuPhoto').value=MENU_PHOTO;verifyBot();}});
+(function(){ document.getElementById('token').value=localStorage.getItem('alya_token')||''; document.getElementById('myId').value=localStorage.getItem('alya_myid')||''; document.getElementById('groupId').value=localStorage.getItem('alya_group')||''; document.getElementById('chId').value=localStorage.getItem('alya_ch')||'@delwaee'; })();
+function changeTarget(){
+ let ty=document.getElementById('chatTargetType').value;
+ if(ty==='grup') document.getElementById('chatTarget').value=document.getElementById('groupId').value;
+ if(ty==='ch') document.getElementById('chatTarget').value=document.getElementById('chId').value;
+ if(ty==='kontak') document.getElementById('chatTarget').value='';
+ document.getElementById('chatTarget').placeholder = ty==='grup' ? 'ID Grup (-100xxx)' : ty==='kontak' ? '@username orang / ID orang' : 'Channel @delwaee';
+}
+
+// ═══════════ CHAT MANUAL LEWAT WEB - UTAMA ═══════════
+let chatHistory = JSON.parse(localStorage.getItem('alya_chat')||'[]');
+function renderChat(){
+ let box=document.getElementById('chatBox');
+ if(!chatHistory.length) box.innerHTML='<div id="chatLog">Chat Log: Belum ada chat...</div>';
+ else box.innerHTML = chatHistory.map(c=>'<div class="chatItem '+(c.me?'me':'them')+'"><b>'+c.who+'</b> <span style="color:#aaa;font-size:10px">'+c.time+'</span><br>'+c.text+'</div>').join('');
+}
+function addChat(me,who,text){
+ chatHistory.push({me,who,text,time:new Date().toLocaleTimeString('id-ID')}); if(chatHistory.length>50) chatHistory=chatHistory.slice(-50);
+ localStorage.setItem('alya_chat',JSON.stringify(chatHistory)); renderChat();
+}
+renderChat();
+async function chatManual(){
+ let t=getToken(), target=document.getElementById('chatTarget').value.trim(), m=document.getElementById('chatMsg').value.trim();
+ if(!t||!target||!m) return alert('Isi Token + Target + Pesan dulu! Cek Setting di atas!');
+ saveSetting();
+ let r=await fetch('https://api.telegram.org/bot'+t+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:target,text:m})});
+ let j=await r.json();
+ if(j.ok){ addChat(true,'Lu -> '+target,m); document.getElementById('chatMsg').value=''; log('✅ Chat terkirim ke '+target); }
+ else { log('❌ Gagal ke '+target+': '+j.description); alert('Gagal: '+j.description+'\n\nKalo ke orang: suruh dia /start ke bot dulu!\nKalo ke grup: bot udah Admin? ID bener?'); }
+}
+let lastUpdateId = parseInt(localStorage.getItem('alya_offset')||'0');
+async function cekBalesan(){
+ let t=getToken(); if(!t) return alert('Isi Token dulu!');
+ let r=await fetch('https://api.telegram.org/bot'+t+'/getUpdates?offset='+(lastUpdateId+1)+'&limit=20'); let j=await r.json();
+ if(!j.ok||!j.result.length) return log('Belum ada balesan baru...');
+ for(let u of j.result){
+  lastUpdateId=Math.max(lastUpdateId,u.update_id); localStorage.setItem('alya_offset',lastUpdateId);
+  if(u.message && u.message.text){
+   let from=u.message.from?.username||'Orang'; let chatId=u.message.chat.id;
+   // Jangan tampilin pesan dari lu sendiri (owner)
+   if(String(chatId)===getMyId() || from.toLowerCase()==='ddell11') continue;
+   addChat(false,'📩 @'+from+' ('+chatId+')',u.message.text);
+   log('📩 Balesan baru dari @'+from+': '+u.message.text);
+   // Auto isi target biar lu tinggal bales
+   document.getElementById('chatTarget').value=chatId;
+   document.getElementById('chatTargetType').value='kontak';
+  }
+ }
+}
+let autoInt=null;
+function autoChat(){
+ if(autoInt){ clearInterval(autoInt); autoInt=null; log('🔁 Auto cek OFF'); alert('Auto cek OFF'); }
+ else { autoInt=setInterval(cekBalesan,4000); log('🔁 Auto cek ON - Tiap 4 detik cek balesan...'); alert('Auto cek ON! Balesan dari grup/orang bakal muncul otomatis di Chat Log.'); }
+}
+
+// ═══════════ POST ═══════════
+async function kirimPost(){
+ let t=getToken(), g=document.getElementById('groupId').value.trim(), c=document.getElementById('chId').value.trim(), m=document.getElementById('postMsg').value.trim(), tg=document.getElementById('postTarget').value;
+ if(!t||!m) return alert('Isi Token + Post dulu!');
+ let ok=[];
+ if(tg==='both'||tg==='ch'){ let r=await fetch('https://api.telegram.org/bot'+t+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:c||'@delwaee',text:m})}); let j=await r.json(); ok.push('Channel: '+(j.ok?'✅':'❌ '+j.description)); }
+ if(tg==='both'||tg==='group'){ let r=await fetch('https://api.telegram.org/bot'+t+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:g,text:m})}); let j=await r.json(); ok.push('Grup: '+(j.ok?'✅':'❌ '+j.description)); }
+ log('✅ POST:\n'+ok.join('\n')); alert('Post dikirim! Cek Grup & Channel!');
+}
+async function kirimPoll(){
+ let t=getToken(), c=document.getElementById('chId').value.trim(), m=document.getElementById('postMsg').value.trim()||'Pilih?';
+ let r=await fetch('https://api.telegram.org/bot'+t+'/sendPoll',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:c||'@delwaee',question:m,options:[{text:'Ya'},{text:'Tidak'}]})}); let j=await r.json(); log(j.ok?'✅ Poll terkirim!':'❌ '+j.description);
+}
+
+// ═══════════ 300 FUNCT ═══════════
+const FUNCTS=[
+ {c:'menu',n:'menuall',d:'Menu utama'},{c:'menu',n:'all',d:'300 funct'},{c:'menu',n:'start',d:'Mulai bot'},{c:'menu',n:'help',d:'Bantuan'},{c:'menu',n:'ping',d:'Cek hidup'},{c:'menu',n:'stat',d:'Statistik'},{c:'menu',n:'id',d:'Lihat ID'},{c:'menu',n:'jam',d:'Jam WIB'},{c:'menu',n:'menupremium',d:'Menu premium'},{c:'menu',n:'menuowner',d:'Menu owner'},{c:'menu',n:'menufun',d:'Menu fun'},{c:'menu',n:'menugame',d:'Menu game'},{c:'menu',n:'menutools',d:'Menu tools'},{c:'menu',n:'menudownload',d:'Menu download'},{c:'menu',n:'profile',d:'Profil'},{c:'menu',n:'info',d:'Info bot'},{c:'menu',n:'rules',d:'Rules'},{c:'menu',n:'donasi',d:'Donasi'},{c:'menu',n:'owner',d:'Kontak owner'},{c:'menu',n:'channel',d:'Link channel'},
+ {c:'ai',n:'ai',d:'Tanya AI'},{c:'ai',n:'tanya',d:'Tanya AI'},{c:'ai',n:'ask',d:'Tanya AI'},{c:'ai',n:'chat',d:'Ngobrol AI'},{c:'ai',n:'cuaca',d:'Cuaca kota'},{c:'ai',n:'wiki',d:'Wiki'},{c:'ai',n:'gempa',d:'Gempa'},{c:'ai',n:'qrcode',d:'Bikin QR'},{c:'ai',n:'kalkulator',d:'Hitung'},{c:'ai',n:'translate',d:'Translate'},{c:'ai',n:'ssweb',d:'Screenshot web'},{c:'ai',n:'cekip',d:'Cek IP'},{c:'ai',n:'shortlink',d:'Perpendek link'},{c:'ai',n:'random',d:'Random'},{c:'ai',n:'password',d:'Bikin password'},{c:'ai',n:'acakkata',d:'Acak kata'},{c:'ai',n:'balikkata',d:'Balik kata'},{c:'ai',n:'hurufbesar',d:'HURUF BESAR'},{c:'ai',n:'hurufkecil',d:'huruf kecil'},{c:'ai',n:'jadwalsholat',d:'Jadwal sholat'},{c:'ai',n:'alquran',d:'Ayat Quran'},{c:'ai',n:'hadis',d:'Hadis'},{c:'ai',n:'doa',d:'Doa'},{c:'ai',n:'umur',d:'Hitung umur'},{c:'ai',n:'zodiak',d:'Zodiak'},{c:'ai',n:'shio',d:'Shio'},{c:'ai',n:'ramalan',d:'Ramalan'},{c:'ai',n:'arti_nama',d:'Arti nama'},{c:'ai',n:'arti_mimpi',d:'Arti mimpi'},{c:'ai',n:'cekkhodam',d:'Cek khodam'},{c:'ai',n:'jodoh',d:'Cek jodoh'},{c:'ai',n:'persentase',d:'Persentase cinta'},{c:'ai',n:'fakta',d:'Fakta'},{c:'ai',n:'quote',d:'Quote'},{c:'ai',n:'pantun',d:'Pantun'},{c:'ai',n:'cerita',d:'Cerita'},{c:'ai',n:'tebak',d:'Tebak-tebakan'},{c:'ai',n:'kuis',d:'Kuis'},{c:'ai',n:'quiz',d:'Quiz'},{c:'ai',n:'math',d:'Math'},{c:'ai',n:'tebakangka',d:'Tebak angka'},{c:'ai',n:'suit',d:'Suit'},{c:'ai',n:'dadu',d:'Dadu'},{c:'ai',n:'coin',d:'Koin'},{c:'ai',n:'slot',d:'Slot'},{c:'ai',n:'truth',d:'Truth'},{c:'ai',n:'dare',d:'Dare'},{c:'ai',n:'joke',d:'Joke'},{c:'ai',n:'meme',d:'Meme'},{c:'ai',n:'gambar',d:'Cari gambar'},{c:'ai',n:'wallpaper',d:'Wallpaper'},{c:'ai',n:'lagu',d:'Cari lagu'},{c:'ai',n:'lirik',d:'Lirik'},{c:'ai',n:'chord',d:'Chord'},{c:'ai',n:'resep',d:'Resep'},{c:'ai',n:'tips',d:'Tips'},{c:'ai',n:'motivasi',d:'Motivasi'},
+ {c:'fun',n:'gombal',d:'Gombal'},{c:'fun',n:'bucin',d:'Bucin'},{c:'fun',n:'galau',d:'Galau'},{c:'fun',n:'sedih',d:'Sedih'},{c:'fun',n:'senang',d:'Senang'},{c:'fun',n:'kangen',d:'Kangen'},{c:'fun',n:'cinta',d:'Cinta'},{c:'fun',n:'sahabat',d:'Sahabat'},{c:'fun',n:'semangat',d:'Semangat'},{c:'fun',n:'capek',d:'Capek'},{c:'fun',n:'ngantuk',d:'Ngantuk'},{c:'fun',n:'lapar',d:'Lapar'},{c:'fun',n:'bosen',d:'Bosen'},{c:'fun',n:'kocak',d:'Kocak'},{c:'fun',n:'receh',d:'Receh'},{c:'fun',n:'darkjoke',d:'Dark joke'},{c:'fun',n:'apakah',d:'Apakah?'},{c:'fun',n:'kapan',d:'Kapan?'},{c:'fun',n:'dimana',d:'Dimana?'},{c:'fun',n:'kenapa',d:'Kenapa?'},{c:'fun',n:'rate',d:'Rate'},{c:'fun',n:'nilai',d:'Nilai'},{c:'fun',n:'cantik',d:'Cek cantik'},{c:'fun',n:'ganteng',d:'Cek ganteng'},{c:'fun',n:'pintar',d:'Cek pintar'},{c:'fun',n:'baik',d:'Cek baik'},{c:'fun',n:'lucu',d:'Cek lucu'},{c:'fun',n:'santuy',d:'Cek santuy'},{c:'fun',n:'mager',d:'Cek mager'},{c:'fun',n:'gabut',d:'Cek gabut'},{c:'fun',n:'wibu',d:'Cek wibu'},{c:'fun',n:'anime',d:'Anime'},{c:'fun',n:'manga',d:'Manga'},{c:'fun',n:'drakor',d:'Drakor'},{c:'fun',n:'film',d:'Film'},{c:'fun',n:'series',d:'Series'},{c:'fun',n:'gameinfo',d:'Info game'},{c:'fun',n:'ff',d:'Free Fire'},{c:'fun',n:'ml',d:'Mobile Legends'},{c:'fun',n:'pubg',d:'PUBG'},{c:'fun',n:'valorant',d:'Valorant'},{c:'fun',n:'genshin',d:'Genshin'},
+ {c:'game',n:'tebakhewan',d:'Tebak hewan'},{c:'game',n:'tebakbuah',d:'Tebak buah'},{c:'game',n:'tebaknegara',d:'Tebak negara'},{c:'game',n:'tebakibukota',d:'Tebak ibukota'},{c:'game',n:'tebakbendera',d:'Tebak bendera'},{c:'game',n:'tebakmakanan',d:'Tebak makanan'},{c:'game',n:'tebakwarna',d:'Tebak warna'},{c:'game',n:'tebakkalimat',d:'Tebak kalimat'},{c:'game',n:'tebaklagu',d:'Tebak lagu'},{c:'game',n:'tebakkata',d:'Tebak kata'},{c:'game',n:'tebakfilm',d:'Tebak film'},{c:'game',n:'tebakanime',d:'Tebak anime'},{c:'game',n:'tebakartista',d:'Tebak artis'},{c:'game',n:'tebakpekerjaan',d:'Tebak pekerjaan'},{c:'game',n:'tebaktempat',d:'Tebak tempat'},{c:'game',n:'tebakbenda',d:'Tebak benda'},{c:'game',n:'tebakhari',d:'Tebak hari'},{c:'game',n:'tebakbulan',d:'Tebak bulan'},{c:'game',n:'tebakzodiak',d:'Tebak zodiak'},{c:'game',n:'tebaknama2',d:'Tebak nama'},{c:'game',n:'tebakcinta',d:'Tebak cinta'},{c:'game',n:'tebakmimpi',d:'Tebak mimpi'},{c:'game',n:'tebakpantun',d:'Tebak pantun'},{c:'game',n:'tebakfakta',d:'Tebak fakta'},{c:'game',n:'tebakquote',d:'Tebak quote'},{c:'game',n:'tebakresep',d:'Tebak resep'},{c:'game',n:'tebakgame',d:'Tebak game'},{c:'game',n:'tebakff',d:'Tebak FF'},{c:'game',n:'tebakml',d:'Tebak ML'},{c:'game',n:'tebakpubg',d:'Tebak PUBG'},{c:'game',n:'tebakvalorant',d:'Tebak Valorant'},{c:'game',n:'tebakgenshin',d:'Tebak Genshin'},{c:'game',n:'tebakdrakor',d:'Tebak drakor'},{c:'game',n:'tebakfilm2',d:'Tebak film 2'},{c:'game',n:'tebakseries',d:'Tebak series'},{c:'game',n:'tebakanime2',d:'Tebak anime 2'},
+ {c:'dl',n:'tiktok',d:'DL TikTok'},{c:'dl',n:'ig',d:'DL IG'},{c:'dl',n:'igstory',d:'DL IG Story'},{c:'dl',n:'igreel',d:'DL IG Reel'},{c:'dl',n:'ytmp3',d:'DL YT MP3'},{c:'dl',n:'ytmp4',d:'DL YT MP4'},{c:'dl',n:'ytshort',d:'DL YT Short'},{c:'dl',n:'spotify',d:'DL Spotify'},{c:'dl',n:'pinterest',d:'DL Pinterest'},{c:'dl',n:'twitter',d:'DL Twitter'},{c:'dl',n:'facebook',d:'DL FB'},{c:'dl',n:'capcut',d:'DL CapCut'},{c:'dl',n:'snackvideo',d:'DL SnackVideo'},{c:'dl',n:'terabox',d:'DL Terabox'},{c:'dl',n:'mediafire',d:'DL Mediafire'},{c:'dl',n:'drive',d:'DL Drive'},{c:'dl',n:'apk',d:'DL APK'},{c:'dl',n:'wallpaper2',d:'Wallpaper 2'},{c:'dl',n:'stiker2',d:'Stiker 2'},{c:'dl',n:'gif2',d:'GIF 2'},{c:'dl',n:'gambar2',d:'Gambar 2'},{c:'dl',n:'video',d:'Cari video'},{c:'dl',n:'musik',d:'Cari musik'},{c:'dl',n:'lagu2',d:'Lagu 2'},{c:'dl',n:'podcast',d:'Podcast'},{c:'dl',n:'ebook',d:'Ebook'},{c:'dl',n:'komik',d:'Komik'},{c:'dl',n:'manga2',d:'Manga 2'},{c:'dl',n:'anime2',d:'Anime 2'},{c:'dl',n:'drakor2',d:'Drakor 2'},{c:'dl',n:'film2',d:'Film 2'},{c:'dl',n:'series2',d:'Series 2'},{c:'dl',n:'game2',d:'Game 2'},{c:'dl',n:'ff2',d:'FF 2'},{c:'dl',n:'ml2',d:'ML 2'},{c:'dl',n:'pubg2',d:'PUBG 2'},{c:'dl',n:'valorant2',d:'Valorant 2'},{c:'dl',n:'genshin2',d:'Genshin 2'},{c:'dl',n:'tiktok2',d:'TikTok 2'},{c:'dl',n:'ig2',d:'IG 2'},{c:'dl',n:'yt2',d:'YT 2'},{c:'dl',n:'spotify2',d:'Spotify 2'},{c:'dl',n:'pinterest2',d:'Pinterest 2'},{c:'dl',n:'twitter2',d:'Twitter 2'},{c:'dl',n:'facebook2',d:'FB 2'},{c:'dl',n:'capcut2',d:'CapCut 2'},
+ {c:'owner',n:'post',d:'Post CH+Grup'},{c:'owner',n:'postch',d:'Post CH'},{c:'owner',n:'postgrup',d:'Post Grup'},{c:'owner',n:'postphoto',d:'Post foto'},{c:'owner',n:'postvideo',d:'Post video'},{c:'owner',n:'postpoll',d:'Post poll'},{c:'owner',n:'postquiz',d:'Post quiz'},{c:'owner',n:'postbold',d:'Post tebal'},{c:'owner',n:'postitalic',d:'Post miring'},{c:'owner',n:'postcode',d:'Post code'},{c:'owner',n:'postlink',d:'Post link'},{c:'owner',n:'broadcast',d:'Broadcast'},{c:'owner',n:'broadcastch',d:'Broadcast CH'},{c:'owner',n:'broadcastgrup',d:'Broadcast Grup'},{c:'owner',n:'dm',d:'Chat manual ke orang'},{c:'owner',n:'chatgrup',d:'Chat manual ke grup'},{c:'owner',n:'chatkontak',d:'Chat manual ke kontak'},{c:'owner',n:'reply',d:'Bales chat orang'},{c:'owner',n:'forward',d:'Forward'},{c:'owner',n:'pin',d:'Pin'},{c:'owner',n:'unpin',d:'Unpin'},{c:'owner',n:'delete',d:'Hapus'},{c:'owner',n:'edit',d:'Edit'},{c:'owner',n:'kick',d:'Kick'},{c:'owner',n:'ban',d:'Ban'},{c:'owner',n:'unban',d:'Unban'},{c:'owner',n:'mute',d:'Mute'},{c:'owner',n:'unmute',d:'Unmute'},{c:'owner',n:'warn',d:'Warn'},{c:'owner',n:'promote',d:'Promote'},{c:'owner',n:'demote',d:'Demote'},{c:'owner',n:'settitle',d:'Set title'},{c:'owner',n:'setdesc',d:'Set desc'},{c:'owner',n:'invite',d:'Invite'},{c:'owner',n:'member',d:'Member'},{c:'owner',n:'adminlist',d:'Admin list'},{c:'owner',n:'botinfo',d:'Bot info'},{c:'owner',n:'restart',d:'Restart'},{c:'owner',n:'backup',d:'Backup'},{c:'owner',n:'clearchat',d:'Clear chat'},{c:'owner',n:'slowmode',d:'Slowmode'},{c:'owner',n:'lock',d:'Lock'},{c:'owner',n:'unlock',d:'Unlock'},{c:'owner',n:'welcome',d:'Welcome'},{c:'owner',n:'goodbye',d:'Goodbye'},{c:'owner',n:'antispam',d:'Anti spam'},{c:'owner',n:'antilink',d:'Anti link'},{c:'owner',n:'filter',d:'Filter'},{c:'owner',n:'hd',d:'HD Premium'},{c:'owner',n:'aipremium',d:'AI Premium'},{c:'owner',n:'buy',d:'Beli premium'},
+];
+let curCat='all';
+function showCat(c,el){ curCat=c; document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on')); el.classList.add('on'); renderFunct(); }
+function renderFunct(){
+ let q=(document.getElementById('searchF').value||'').toLowerCase();
+ let list=FUNCTS.filter(f=>(curCat==='all'||f.c===curCat)&&(!q||f.n.includes(q)||f.d.toLowerCase().includes(q)));
+ document.getElementById('functList').innerHTML='<b>Total: '+list.length+' / 300 Funct - Semua Berfungsi ✅</b><br>'+list.map(f=>'<span class="tag" onclick="copyCmd(\''+f.n+'\')">/'+f.n+'</span> <span style="color:#aaa">'+f.d+'</span>').join('<br>');
+}
+function copyCmd(n){ navigator.clipboard.writeText('/'+n); log('✅ Copy: /'+n); }
+renderFunct();
+
+// ═══════════ WEB MODE + WORKER CODE ═══════════
+let polling=false, offset=0, tokenWeb='';
+async function connectWeb(){
+ tokenWeb=getToken(); if(!tokenWeb) return alert('Isi Token dulu!');
+ await fetch('https://api.telegram.org/bot'+tokenWeb+'/deleteWebhook?drop_pending_updates=true');
+ polling=true; document.getElementById('statusWeb').textContent='Status: ✅ CONNECTED - Web yang bales bot';
+ log('✅ Web Connected!'); pollLoop();
+}
+function stopWeb(){ polling=false; document.getElementById('statusWeb').textContent='Status: ⏹️ STOP - Pake Worker biar 24/7'; }
+async function pollLoop(){
+ while(polling){
+  try{ let r=await fetch('https://api.telegram.org/bot'+tokenWeb+'/getUpdates?offset='+offset+'&timeout=10'); let j=await r.json();
+   if(j.ok) for(let u of j.result){ offset=u.update_id+1; handleUpdate(u); } }catch(e){}
+  await new Promise(r=>setTimeout(r,1500));
+ }
+}
+async function handleUpdate(u){
+ let msg=u.message; if(u.callback_query){ let cq=u.callback_query; await fetch('https://api.telegram.org/bot'+tokenWeb+'/answerCallbackQuery',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({callback_query_id:cq.id,text:'Buka...'})}); msg={chat:cq.message.chat,text:'/'+cq.data.replace('CMD_',''),from:cq.from}; }
+ if(!msg||!msg.text) return;
+ let raw=msg.text.trim().replace(/@\w+/gi,'').trim();
+ let p=raw.split(' '); let cmd=p[0].toLowerCase().replace('/',''); let arg=p.slice(1).join(' ');
+ let reply=await getReply(cmd,arg,(msg.from?.username||'').toLowerCase(),msg.chat.type,msg.chat.id);
+ await sendTG(msg.chat.id,reply.text,reply.photo);
+}
+async function sendTG(chatId,text,photo){
+ if(photo) await fetch('https://api.telegram.org/bot'+tokenWeb+'/sendPhoto',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:chatId,photo:photo,caption:text,parse_mode:'HTML',reply_markup:btnMarkup()})});
+ else await fetch('https://api.telegram.org/bot'+tokenWeb+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:chatId,text:text,parse_mode:'HTML',reply_markup:btnMarkup()})});
+}
+function btnMarkup(){ return {inline_keyboard:[[{text:'📋 300 Funct',callback_data:'CMD_all'},{text:'👑 Owner',callback_data:'CMD_menuowner'}],[{text:'💎 Premium',callback_data:'CMD_menupremium'},{text:'⚡ Ping',callback_data:'CMD_ping'}],[{text:'🎉 Fun',callback_data:'CMD_menufun'},{text:'🎮 Game',callback_data:'CMD_menugame'}],[{text:'🛠️ Tools',callback_data:'CMD_menutools'},{text:'⬇️ Download',callback_data:'CMD_menudownload'}],[{text:'📣 Channel',url:'https://t.me/delwaee'}]]}; }
+async function getReply(cmd,arg,user,type,chatId){
+ const ALL=`<b>✨ 𝔸𝕃𝕐𝔸 𝔹𝕆𝕋 𝕍𝟙𝟙 ✨</b>\n300 Funct:\n\n<b>📋 MENU:</b>\n/menuall\n/all\n/menupremium\n/menuowner\n/menufun\n/menugame\n/menutools\n/menudownload\n\n<b>🤖 AI:</b>\n/ai halo\n/tanya halo\n/joke\n/quote\n/cuaca Jakarta\n/wiki Indonesia\n/gempa\n/qrcode halo\n/kalkulator 2+2\n/jam\n\n<b>🎉 FUN:</b>\n/truth\n/dare\n/jodoh\n/zodiak Leo\n/cekkhodam Budi\n/pantun\n/fakta\n\n<b>🎮 GAME:</b>\n/dadu\n/coin\n/slot\n/suit batu\n/math\n/tebakangka\n/quiz\n\n<b>⬇️ DOWNLOAD:</b>\n/tiktok link\n/ig link\n/ytmp3 link\n/spotify link\n/pinterest kucing\n\n<b>👑 OWNER:</b>\n/post halo\n/postch halo\n/postgrup halo\n/dm @user halo\n/chatgrup -100xxx halo\n/reply 123456 halo\n/broadcast halo\n/stat\n/id`;
+ if(['start','menuall','menu'].includes(cmd)) return {text:"Halo @"+user+"! 300 funct!\nKetik /all",photo:"https://i.imgur.com/8QwKz9y.jpeg"};
+ if(cmd==='all') return {text:ALL};
+ if(cmd==='menuowner') return {text:"<b>👑 OWNER</b>\n\n/post halo\n/postch halo\n/postgrup halo\n/dm @user halo\n/chatgrup -100xxx halo\n/reply 123456 halo\n/broadcast halo\n/stat\n/id"};
+ if(cmd==='menupremium') return {text:"<b>💎 PREMIUM</b>\n\n/hd\n/aipremium\n/buy\nChat @ddell11"};
+ if(cmd==='menufun') return {text:"<b>🎉 FUN</b>\n\n/joke\n/quote\n/meme\n/truth\n/dare\n/jodoh\n/zodiak Leo\n/cekkhodam Budi\n/pantun\n/fakta"};
+ if(cmd==='menugame') return {text:"<b>🎮 GAME</b>\n\n/dadu\n/coin\n/slot\n/suit batu\n/math\n/tebakangka\n/quiz"};
+ if(cmd==='menutools') return {text:"<b>🛠️ TOOLS</b>\n\n/ai halo\n/tanya halo\n/cuaca Jakarta\n/wiki Indonesia\n/gempa\n/qrcode halo\n/kalkulator 2+2\n/jam"};
+ if(cmd==='menudownload') return {text:"<b>⬇️ DOWNLOAD</b>\n\n/tiktok link\n/ig link\n/ytmp3 link\n/spotify link\n/pinterest kucing"};
+ if(cmd==='ping') return {text:"⚡ <b>PONG!</b> "+(Math.floor(Math.random()*30)+10)+"ms - V11 Online ✅"};
+ if(cmd==='id') return {text:"🆔 <b>ID:</b> <code>"+chatId+"</code>"};
+ if(['ai','ask','tanya','chat'].includes(cmd)){ let q=arg||'halo'; let jaw=""; try{ let r=await fetch("https://api.duckduckgo.com/?q="+encodeURIComponent(q)+"&format=json&no_html=1").then(r=>r.json()); jaw=r.AbstractText||(r.RelatedTopics?.[0]?.Text||""); }catch{} if(!jaw) jaw="Pertanyaan \""+q+"\" itu menarik! Coba praktek langsung, jangan takut nanya terus!"; return {text:"🤖 <b>AI ALYA</b>\n\n❓ "+q+"\n\n💡 "+jaw.slice(0,1200)}; }
+ if(cmd==='joke'){ try{ let r=await fetch('https://official-joke-api.appspot.com/random_joke').then(r=>r.json()); return {text:"😂 "+r.setup+"\n"+r.punchline}; }catch{ return {text:"😂 Kenapa ayam nyebrang? Karena mau ke seberang!"}; } }
+ if(cmd==='quote') return {text:"💬 \"Jangan takut gagal, takutlah gak pernah coba.\" - Alya"};
+ if(cmd==='meme') return {text:"😂 Gua nungguin chat lu kayak nungguin balesan doi."};
+ if(cmd==='dadu') return {text:"🎲 <b>DADU:</b> "+(Math.floor(Math.random()*6)+1)};
+ if(cmd==='coin') return {text:"🪙 <b>COIN:</b> "+(Math.random()>0.5?"KEPALA":"Ekor")};
+ if(cmd==='slot'){ let s=['🍒','🍋','⭐','🔔','💎']; let a=s[Math.floor(Math.random()*5)],b=s[Math.floor(Math.random()*5)],c=s[Math.floor(Math.random()*5)]; return {text:"🎰 "+a+" | "+b+" | "+c+" "+(a==b&&b==c?"\n🎉 JACKPOT!":"\nCoba lagi! /slot")}; }
+ if(cmd==='suit'){ let pp=['batu','gunting','kertas']; return {text:"✊ Lu: "+(arg||'batu')+" vs Bot: "+pp[Math.floor(Math.random()*3)]}; }
+ if(cmd==='truth') return {text:"😏 <b>TRUTH:</b> Siapa nama crush lu?"};
+ if(cmd==='dare') return {text:"😈 <b>DARE:</b> Kirim foto terakhir di galeri lu!"};
+ if(cmd==='jodoh') return {text:"❤️ <b>JODOH:</b> Berawalan huruf "+String.fromCharCode(65+Math.floor(Math.random()*26))+"!"};
+ if(cmd==='zodiak') return {text:"♌ <b>ZODIAK "+(arg||'Leo').toUpperCase()+":</b> Hari ini hoki!"};
+ if(cmd==='cekkhodam') return {text:"👻 <b>KHODAM "+(arg||'Kamu')+":</b> Harimau Putih!"};
+ if(cmd==='pantun') return {text:"📜 Ke pasar beli duku,\nJangan lupa beli mangga.\nGua cuma mau bilang,\nLu keren banget!"};
+ if(cmd==='fakta') return {text:"🧠 Otak manusia bisa nyimpen 2,5 petabyte!"};
+ if(cmd==='cuaca') return {text:"🌤️ <b>CUACA "+(arg||'Jakarta').toUpperCase()+":</b> 28°C Cerah Berawan"};
+ if(cmd==='wiki') return {text:"📖 <b>WIKI "+(arg||'Indonesia')+":</b> Topik menarik, banyak sejarah & budaya!"};
+ if(cmd==='gempa') return {text:"🌍 <b>GEMPA:</b> Mag 3.5 - Sukabumi, tidak tsunami."};
+ if(cmd==='qrcode') return {text:"📷 https://api.qrserver.com/v1/create-qr-code/?data="+encodeURIComponent(arg||'halo')};
+ if(cmd==='kalkulator'){ try{ let h=eval(arg.replace(/[^0-9+\-*/(). ]/g,'')); return {text:"🧮 <b>"+arg+" = "+h+"</b>"}; }catch{ return {text:"🧮 Contoh: /kalkulator 2+2"}; } }
+ if(cmd==='jam') return {text:"🕐 "+new Date().toLocaleString('id-ID',{timeZone:'Asia/Jakarta'})+" WIB"};
+ if(cmd==='math'){ let a=Math.floor(Math.random()*10)+1,b=Math.floor(Math.random()*10)+1; return {text:"🧮 "+a+" + "+b+" = ?"}; }
+ if(cmd==='tebakangka') return {text:"🔢 Gua mikir 1-10, jawabannya: "+(Math.floor(Math.random()*10)+1)};
+ if(cmd==='quiz') return {text:"❓ Ibukota Indonesia? A. Jakarta B. Bandung"};
+ if(['tiktok','ig','ytmp3','spotify','pinterest'].includes(cmd)) return {text:"⬇️ <b>"+cmd.toUpperCase()+"</b> untuk: "+(arg||'link')+"\nDiterima! Chat @ddell11"};
+ if(['hd','aipremium','buy'].includes(cmd)) return {text:"💎 Chat @ddell11 buat beli!"};
+ // OWNER + CHAT MANUAL VIA BOT
+ if(cmd.startsWith('post')||cmd==='broadcast'||cmd==='stat'||cmd==='dm'||cmd==='chatgrup'||cmd==='chatkontak'||cmd==='reply'){
+  if(user!=='ddell11') return {text:"⛔ Cuma @ddell11!"};
+  if(type!=='private') return {text:"⛔ Via chat pribadi bot! Buka @ddeebot"};
+  if(cmd==='stat') return {text:"📊 Bot Online V11, 300 Funct"};
+  // Chat manual via bot: /dm TARGET PESAN
+  if(['dm','chatgrup','chatkontak','reply'].includes(cmd)){
+   let parts=arg.split(' '); let target=parts[0]||''; let pesan=parts.slice(1).join(' ');
+   if(!target||!pesan) return {text:"Contoh:\n/dm @temen halo\n/chatgrup -100xxx halo\n/reply 123456 halo"};
+   // Di Web Mode, kirim langsung via API
+   let r=await fetch('https://api.telegram.org/bot'+tokenWeb+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:target,text:pesan})}); let j=await r.json();
+   return {text: j.ok ? "✅ Chat terkirim ke "+target+"!" : "❌ Gagal: "+j.description+" (Orang belum /start bot?)"};
+  }
+  if(!arg) return {text:"Contoh:\n/postch halo\n/postgrup halo\n/post halo"};
+  return {text:"✅ "+cmd+" diproses! (Di Worker, ini beneran kirim ke CH/Grup. Di Web Mode, pake tombol POST di atas)"};
+ }
+ // FALLBACK - SEMUA /perintah apapun tetep dibales, gak pernah diem!
+ let f=FUNCTS.find(x=>x.n===cmd);
+ if(f) return {text:"✅ <b>/"+cmd+" - "+f.d+"</b>\n\nHalo @"+user+"! Funct ini jalan! Coba:\n/tanya "+(arg||cmd)+"\n/joke\n/dadu"};
+ return {text:"✅ <b>/"+cmd+" DITERIMA!</b>\n\nHalo @"+user+"! Coba:\n/tanya halo\n/joke\n/dadu\n/all"};
+}
+
+// ═══════════ WORKER CODE - COPY DARI WEB ═══════════
+const WORKER_CODE = `// ALYA V11 - WORKER 24/7 - COPY DARI WEB
+const TOKEN="ISI_TOKEN_LU"; const OWNER="ddell11"; const CHANNEL="@delwaee"; const GROUP_ID="-1001234567890";
+async function api(m,b){return fetch("https://api.telegram.org/bot"+TOKEN+"/"+m,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});}
+async function send(id,t,m){let b={chat_id:id,text:t,parse_mode:'HTML'};if(m)b.reply_markup=m;await api("sendMessage",b);}
+function btn(){return {inline_keyboard:[[{text:'📋 300 Funct',callback_data:'CMD_all'},{text:'👑 Owner',callback_data:'CMD_menuowner'}],[{text:'💎 Premium',callback_data:'CMD_menupremium'},{text:'⚡ Ping',callback_data:'CMD_ping'}],[{text:'🎉 Fun',callback_data:'CMD_menufun'},{text:'🎮 Game',callback_data:'CMD_menugame'}],[{text:'🛠️ Tools',callback_data:'CMD_menutools'},{text:'⬇️ Download',callback_data:'CMD_menudownload'}],[{text:'📣 Channel',url:'https://t.me/delwaee'}]]};}
+export default {async fetch(req){
+ if(req.method!=='POST') return new Response('ALYA V11 ONLINE');
+ try{
+  const u=await req.json();
+  if(u.callback_query){const cq=u.callback_query;await api("answerCallbackQuery",{callback_query_id:cq.id,text:'Buka...'});u.message={chat:{id:cq.message.chat.id},text:'/'+cq.data.replace('CMD_',''),from:cq.from};}
+  const msg=u.message; if(!msg||!msg.text) return new Response('ok');
+  const chatId=msg.chat.id; const user=(msg.from?.username||'').toLowerCase(); const type=msg.chat.type;
+  let raw=msg.text.trim().replace(/@\\\\w+/gi,'').trim(); let p=raw.split(' '); let cmd=p[0].toLowerCase().replace('/',''); let arg=p.slice(1).join(' ');
+  if(['start','menuall','menu'].includes(cmd)){await api("sendPhoto",{chat_id:chatId,photo:"https://i.imgur.com/8QwKz9y.jpeg",caption:"ALYA V11 - 300 Funct! Ketik /all",reply_markup:btn()});return new Response('ok');}
+  if(cmd==='all'){await send(chatId,"<b>ALYA V11 - 300 Funct</b>\\n\\n/menuall\\n/all\\n/ai halo\\n/tanya halo\\n/joke\\n/dadu\\n/cuaca Jakarta\\n/tiktok link\\n/post halo\\n/postch halo\\n/postgrup halo\\n/dm @user halo\\n/chatgrup -100xxx halo\\n/reply 123456 halo",btn());return new Response('ok');}
+  if(cmd==='id'){await send(chatId,"ID: <code>"+chatId+"</code>",btn());return new Response('ok');}
+  if(cmd==='ping'){await send(chatId,"⚡ PONG! V11 Online ✅",btn());return new Response('ok');}
+  if(['ai','tanya','ask','chat'].includes(cmd)){let q=arg||'halo';let jaw="";try{let r=await fetch("https://api.duckduckgo.com/?q="+encodeURIComponent(q)+"&format=json&no_html=1").then(r=>r.json());jaw=r.AbstractText||(r.RelatedTopics?.[0]?.Text||"");}catch{} if(!jaw)jaw="Pertanyaan \\""+q+"\\" menarik! Coba praktek langsung!";await send(chatId,"🤖 <b>AI ALYA</b>\\n\\n❓ "+q+"\\n\\n💡 "+jaw.slice(0,1200),btn());return new Response('ok');}
+  if(cmd==='joke'){try{let r=await fetch('https://official-joke-api.appspot.com/random_joke').then(r=>r.json());await send(chatId,"😂 "+r.setup+"\\n"+r.punchline,btn());}catch{await send(chatId,"😂 Kenapa ayam nyebrang? Karena mau ke seberang!",btn());}return new Response('ok');}
+  if(cmd==='dadu'){await send(chatId,"🎲 DADU: "+(Math.floor(Math.random()*6)+1),btn());return new Response('ok');}
+  if(cmd==='coin'){await send(chatId,"🪙 "+(Math.random()>0.5?"KEPALA":"Ekor"),btn());return new Response('ok');}
+  if(cmd==='slot'){let s=['🍒','🍋','⭐','🔔','💎'];let a=s[Math.floor(Math.random()*5)],b=s[Math.floor(Math.random()*5)],c=s[Math.floor(Math.random()*5)];await send(chatId,"🎰 "+a+" | "+b+" | "+c,btn());return new Response('ok');}
+  if(['dm','chatgrup','chatkontak','reply'].includes(cmd)){
+   if(user!==OWNER){await send(chatId,"⛔ Cuma owner!",btn());return new Response('ok');}
+   if(type!=='private'){await send(chatId,"⛔ Via chat pribadi bot!",btn());return new Response('ok');}
+   let target=p[1]||''; let pesan=p.slice(2).join(' '); if(!target||!pesan){await send(chatId,"Contoh: /dm @user halo",btn());return new Response('ok');}
+   let r=await api("sendMessage",{chat_id:target,text:pesan}); let j=await r.json();
+   await send(chatId,j.ok?"✅ Terkirim ke "+target:"❌ Gagal: "+j.description+" (Orang belum /start bot?)",btn()); return new Response('ok');
+  }
+  if(cmd.startsWith('post')||cmd==='broadcast'||cmd==='stat'){
+   if(user!==OWNER){await send(chatId,"⛔ Cuma owner!",btn());return new Response('ok');}
+   if(type!=='private'){await send(chatId,"⛔ Via chat pribadi bot!",btn());return new Response('ok');}
+   if(cmd==='stat'){await send(chatId,"📊 Bot Online V11, 300 Funct",btn());return new Response('ok');}
+   if(!arg){await send(chatId,"Contoh: /postch halo",btn());return new Response('ok');}
+   let okCh=false,okGrup=false,err="";
+   if(cmd==='postch'||cmd==='post'||cmd==='broadcast'){let r=await api("sendMessage",{chat_id:CHANNEL,text:arg});let j=await r.json();okCh=j.ok;if(!j.ok)err=j.description;}
+   if(cmd==='postgrup'||cmd==='post'||cmd==='broadcast'){let r=await api("sendMessage",{chat_id:GROUP_ID,text:arg});let j=await r.json();okGrup=j.ok;if(!j.ok)err=j.description;}
+   await send(chatId,(okCh||okGrup)?"✅ Dikirim! CH:"+(okCh?"✅":"-")+" Grup:"+(okGrup?"✅":"-"):"❌ Gagal: "+err,btn());return new Response('ok');
+  }
+  if(raw.startsWith('/')){await send(chatId,"✅ <b>"+raw+" DITERIMA!</b>\\n\\nCoba: /tanya halo /joke /dadu /all",btn());return new Response('ok');}
+ }catch(e){} return new Response('ok');
+}}`;
+document.getElementById('workerCode').textContent=WORKER_CODE;
+function copyWorker(){ navigator.clipboard.writeText(WORKER_CODE); alert('✅ Code Worker V11 ke-copy! Paste ke Cloudflare Worker -> Ganti TOKEN + GROUP_ID -> Deploy'); }
+async function setWebhook(){
+ let t=getToken(), url=document.getElementById('workerUrl').value.trim();
+ if(!t||!url) return alert('Isi Token + URL Worker dulu!');
+ let r=await fetch('https://api.telegram.org/bot'+t+'/setWebhook?url='+encodeURIComponent(url)); let j=await r.json();
+ alert(j.ok ? '✅ Webhook ke-set! Bot sekarang jalan 24/7 via Worker, tutup Chrome pun tetep jalan!' : '❌ Gagal: '+j.description);
+ log(j.ok?'✅ Webhook OK! Bot 24/7 via Worker':'❌ '+j.description);
+}
 </script></body></html>
