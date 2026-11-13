@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOT API - DELWAEE</title>
+<style>
+*{box-sizing:border-box;font-family:sans-serif}
+body{background:#0f172a;color:white;margin:0;padding:16px}
+.card{background:#1e293b;border-radius:16px;padding:16px;margin-bottom:12px}
+input,textarea{width:100%;background:#0f172a;border:1px solid #334155;color:white;padding:12px;border-radius:10px;margin:6px 0 12px}
+button{width:100%;padding:13px;border:none;border-radius:12px;font-weight:700;margin-top:6px;cursor:pointer}
+.biru{background:#229ED9;color:white}.hijau{background:#22c55e;color:white}.abu{background:#334155;color:white}
+.log{background:black;color:#4ade80;padding:12px;border-radius:10px;font-size:12px;white-space:pre-wrap;max-height:220px;overflow:auto}
+.on{color:#4ade80}.off{color:#f87171}
+</style>
+</head>
+<body>
+<h2>🤖 BOT API - DELWAEE</h2>
+<p style="color:#94a3b8;font-size:13px">Channel: @delwaee - Bot: @ddeelbot - Pake api.telegram.org/botTOKEN</p>
+
+<div class="card">
+<h3>1. Setting - API BOT</h3>
+<label>API BOT TOKEN (BotFather)</label>
+<input id="token" type="password" placeholder="Paste token lu di sini sekali aja">
+<label>ID CHANNEL TUJUAN</label>
+<input id="chatId" value="@delwaee">
+<button class="biru" onclick="simpan()">💾 SIMPAN TOKEN</button>
+<p>Status Bot: <b id="status" class="off">BELUM CONNECT</b></p>
+<p>Status Auto-Listen: <b id="listenStatus" class="off">OFF</b></p>
+</div>
+
+<div class="card">
+<h3>2. Auto-Post Ke @delwaee</h3>
+<p style="color:#94a3b8;font-size:13px">Chat ke @ddeelbot:<br><b>/post Halo</b> = post ke @delwaee<br><b>/jadwal /piket /pr</b> = post template</p>
+<button class="hijau" onclick="startListen()">▶️ NYALAKAN AUTO-LISTEN</button>
+<button class="abu" onclick="stopListen()">⏹️ MATIKAN</button>
+</div>
+
+<div class="card">
+<h3>3. Template</h3>
+<label>Isi /jadwal</label>
+<textarea id="cmd_jadwal" rows="2">📅 JADWAL BESOK IX-C: MTK, IPA, B.INDO</textarea>
+<label>Isi /piket</label>
+<textarea id="cmd_piket" rows="2">🧹 PIKET HARI INI: Daffa, Raka</textarea>
+<label>Isi /pr</label>
+<textarea id="cmd_pr" rows="2">📚 PR: MTK Hal 45 No 1-5</textarea>
+<button class="biru" onclick="simpanCmd()">💾 SIMPAN TEMPLATE</button>
+</div>
+
+<div class="card">
+<h3>4. Kirim Manual Ke @delwaee</h3>
+<textarea id="pesan" rows="3" placeholder="Tulis pengumuman buat @delwaee..."></textarea>
+<button class="hijau" onclick="kirimManual()">📣 POST KE @delwaee SEKARANG</button>
+</div>
+
+<div class="card"><h3>Log API BOT</h3><div class="log" id="log">Siap... Channel: @delwaee</div></div>
+
+<script>
+let token = localStorage.getItem('bot_token')||'';
+let chatId = localStorage.getItem('bot_chatid')||'@delwaee';
+let offset = 0;
+let listening = false;
+let timer = null;
+document.getElementById('token').value = token;
+document.getElementById('chatId').value = chatId;
+document.getElementById('cmd_jadwal').value = localStorage.getItem('cmd_jadwal') || document.getElementById('cmd_jadwal').value;
+document.getElementById('cmd_piket').value = localStorage.getItem('cmd_piket') || document.getElementById('cmd_piket').value;
+document.getElementById('cmd_pr').value = localStorage.getItem('cmd_pr') || document.getElementById('cmd_pr').value;
+if(token) cekBot();
+function log(t){ document.getElementById('log').textContent += '\n'+new Date().toLocaleTimeString()+' - '+t; }
+function simpan(){
+  token = document.getElementById('token').value.trim();
+  chatId = document.getElementById('chatId').value.trim() || '@delwaee';
+  localStorage.setItem('bot_token', token);
+  localStorage.setItem('bot_chatid', chatId);
+  cekBot();
+}
+function simpanCmd(){
+  localStorage.setItem('cmd_jadwal', document.getElementById('cmd_jadwal').value);
+  localStorage.setItem('cmd_piket', document.getElementById('cmd_piket').value);
+  localStorage.setItem('cmd_pr', document.getElementById('cmd_pr').value);
+  log('Template disimpan'); alert('Disimpan!');
+}
+async function cekBot(){
+  let r = await fetch(`https://api.telegram.org/bot${token}/getMe`);
+  let j = await r.json();
+  if(j.ok){ document.getElementById('status').textContent='CONNECT @'+j.result.username; document.getElementById('status').className='on'; log('Connect API BOT ke @'+j.result.username); }
+  else log('Gagal: '+j.description);
+}
+async function kirimKeChannel(teks){
+  let r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`,{method:'POST', headers:{'Content-Type':'application/json'},body: JSON.stringify({chat_id: chatId, text: teks})});
+  let j = await r.json();
+  if(j.ok) log('BERHASIL POST KE @delwaee: '+teks.slice(0,60));
+  else log('GAGAL POST: '+j.description);
+}
+function kirimManual(){
+  let t=document.getElementById('pesan').value;
+  if(!t) return alert('Isi pesan dulu');
+  kirimKeChannel(t);
+}
+async function poll(){
+  if(!listening) return;
+  try{
+    let r = await fetch(`https://api.telegram.org/bot${token}/getUpdates?offset=${offset}&timeout=5`);
+    let j = await r.json();
+    if(j.ok){
+      for(let u of j.result){
+        offset = u.update_id + 1;
+        let msg = u.message?.text || '';
+        let dari = u.message?.from?.username || 'user';
+        if(!msg) continue;
+        log('Perintah dari @'+dari+': '+msg);
+        if(msg.startsWith('/post ')){ await kirimKeChannel(msg.replace('/post ','')); }
+        else if(msg==='/jadwal'){ await kirimKeChannel(localStorage.getItem('cmd_jadwal')||document.getElementById('cmd_jadwal').value); }
+        else if(msg==='/piket'){ await kirimKeChannel(localStorage.getItem('cmd_piket')||document.getElementById('cmd_piket').value); }
+        else if(msg==='/pr'){ await kirimKeChannel(localStorage.getItem('cmd_pr')||document.getElementById('cmd_pr').value); }
+        else if(msg==='/start'){ await fetch(`https://api.telegram.org/bot${token}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:u.message.chat.id, text:'Bot aktif! Kirim /post Halo untuk post ke @delwaee'})}); }
+      }
+    }
+  }catch(e){ log('Poll error: '+e); }
+}
+function startListen(){
+  if(!token||!chatId) return alert('Isi Token dulu');
+  listening=true;
+  document.getElementById('listenStatus').textContent='ON';
+  document.getElementById('listenStatus').className='on';
+  log('AUTO-LISTEN NYALA -> @delwaee');
+  timer=setInterval(poll, 3000); poll();
+}
+function stopListen(){
+  listening=false; clearInterval(timer);
+  document.getElementById('listenStatus').textContent='OFF';
+  document.getElementById('listenStatus').className='off';
+  log('AUTO-LISTEN MATI');
+}
+</script>
+</body>
+</html>
